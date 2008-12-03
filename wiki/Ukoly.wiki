@@ -1,0 +1,14 @@
+#summary One-sentence summary of this page.
+
+= Rozdělení úloh =
+
+= maChy =
+
+  * Návrh databáze
+
+
+= Kocour =
+  * Návrh designu
+
+= Luke =
+  * PHP developer ;)
