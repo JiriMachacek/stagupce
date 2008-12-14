@@ -1,0 +1,127 @@
+<?php
+class CSeo
+{
+   //definice atriutù
+   private $seo;
+   //------------------------
+
+//zaèátek metody __construct
+   public function __construct($seo)  //metoda která definuje atributy
+   {
+      //uložení hodnoty pøedané metodou do atributu
+      $this->seo = $seo;
+      //------------------------
+   }
+//konec metody __konstruct
+
+//zaèátek metody rozeberSeo, která oddìlí jednotlivé informace o modulu, funkci a názvu jednotlivých záznamù
+   public function rozeberSeo($seo)
+   {
+
+      //rozebrání hodnot pøedané v prom. seo
+      $hodnoty = explode("-",$this->seo,3);
+      $seo["modul"] = $hodnoty[0];
+      $seo["metoda"] = $hodnoty[1];
+      $seo["nazev"] = $hodnoty[2];
+      //------------------------
+
+      //vrácení pole které obsahuje rozebrané hodnoty z prom. seo
+      return $seo;
+      //------------------------
+   }
+//konec metody rozeberSeo, která oddìlí jednotlivé informace o modulu, funkci a názvu jednotlivých záznamù
+
+//zaèátek metody slozSeo, která složí jednotlivé informace o modulu, funkci a názvu jednotlivých záznamù
+   public function slozSeo($modul,$metoda,$nazev)
+   {
+      //zavolání metody která nám upraví název pro seo
+      $nazev = upravProSeo($nazev);
+      //------------------------
+
+      //složení hodnot
+      $seo = $modul."-".$metoda."-".$nazev;
+      //------------------------
+
+      //vrácená hodnota obsahuje url adresu optimalizovanou pro seo
+      return $seo;
+      //------------------------
+   }
+//konec metody slozSeo, která složí jednotlivé informace o modulu, funkci a názvu jednotlivých záznamù
+
+//zaèátek metody upravProSeo, která odstraní diakritiku a upraví všechna písmena na malá a místo mezer použije -
+   private function upravProSeo($prom)
+   {
+      //odstranìní velkých písmen vèetnì odstranìní diakritiky
+      $prom = str_replace("A","a",$prom);
+      $prom = str_replace("Á","c",$prom);
+      $prom = str_replace("B","b",$prom);
+      $prom = str_replace("C","c",$prom);
+      $prom = str_replace("È","c",$prom);
+      $prom = str_replace("D","d",$prom);
+      $prom = str_replace("Ï","d",$prom);
+      $prom = str_replace("E","e",$prom);
+      $prom = str_replace("É","e",$prom);
+      $prom = str_replace("Ì","e",$prom);
+      $prom = str_replace("F","f",$prom);
+      $prom = str_replace("G","g",$prom);
+      $prom = str_replace("H","h",$prom);
+      $prom = str_replace("CH","ch",$prom);
+      $prom = str_replace("Ch","ch",$prom);
+      $prom = str_replace("I","i",$prom);
+      $prom = str_replace("J","j",$prom);
+      $prom = str_replace("K","k",$prom);
+      $prom = str_replace("L","l",$prom);
+      $prom = str_replace("M","m",$prom);
+      $prom = str_replace("N","n",$prom);
+      $prom = str_replace("Ò","n",$prom);
+      $prom = str_replace("O","o",$prom);
+      $prom = str_replace("Ó","o",$prom);
+      $prom = str_replace("P","p",$prom);
+      $prom = str_replace("Q","q",$prom);
+      $prom = str_replace("R","r",$prom);
+      $prom = str_replace("Ø","r",$prom);
+      $prom = str_replace("S","s",$prom);
+      $prom = str_replace("Š","s",$prom);
+      $prom = str_replace("T","t",$prom);
+      $prom = str_replace("","t",$prom);
+      $prom = str_replace("U","u",$prom);
+      $prom = str_replace("Ú","u",$prom);
+      $prom = str_replace("V","v",$prom);
+      $prom = str_replace("W","w",$prom);
+      $prom = str_replace("X","x",$prom);
+      $prom = str_replace("Y","y",$prom);
+      $prom = str_replace("Ý","y",$prom);
+      $prom = str_replace("Z","z",$prom);
+      $prom = str_replace("Ž","z",$prom);
+      //------------------------
+
+      //odstranìní diakritiky u malých písmen
+      $prom = str_replace("á","a",$prom);
+      $prom = str_replace("è","c",$prom);
+      $prom = str_replace("ï","d",$prom);
+      $prom = str_replace("é","e",$prom);
+      $prom = str_replace("ì","e",$prom);
+      $prom = str_replace("í","i",$prom);
+      $prom = str_replace("ò","n",$prom);
+      $prom = str_replace("ó","o",$prom);
+      $prom = str_replace("ø","r",$prom);
+      $prom = str_replace("š","s",$prom);
+      $prom = str_replace("","t",$prom);
+      $prom = str_replace("ú","u",$prom);
+      $prom = str_replace("ù","u",$prom);
+      $prom = str_replace("ý","y",$prom);
+      $prom = str_replace("ž","z",$prom);
+      //------------------------
+
+      //ostatní úpravy
+      $prom = str_replace(" ","-",$prom);
+      //------------------------
+
+      //vrácení upraveného textu pro seo
+      return $prom;
+      //------------------------
+   }
+//zaèátek metody upravProSeo, která odstraní diakritiku a upraví všechna písmena na malá a místo mezer použije -
+
+}
+?>
