@@ -15,7 +15,7 @@ class CAuth
 //konec metody __konstruct
 
 //zaèátek metody modulPovolit která ovìøuje orpávnìní uživatele pro volání modulu
-   public function modulPovolit($seo) //metoda která upravuje tøídy
+   public function modulPovolit($seo)
    {
       //nastavení poèáteèní hodnoty na false - v tomto pøípadì se nám modul nezobrazí a nemusíme ke každé podmínce definovat metodu else
       $Povolit=false;
