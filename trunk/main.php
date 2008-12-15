@@ -4,13 +4,18 @@ require ('smarty/Smarty.class.php');
 
 class main
 {
-	public $smarty;
-	public $pdo;
+	private $smarty;
+	private $pdo;
+	private $session;
+	private $post;
 	
-	public function __construct()
+	public function __construct($session, $post)
 	{
 		$this->startSmarty();
 		$this->startDb();
+		
+		$this->setSession($session);
+		$this->post = $post;
 	}
 	
 	private function startSmarty()
@@ -42,6 +47,7 @@ class main
 		$this->pdo = new PDO('mysql:host='.SQL_host.';dbname='.SQL_dbname, SQL_username, SQL_password);
 	}
 		
+	
 	public function zobraz ($promenne, $sablona)
 	{
 		//preda promenne smarty
@@ -52,9 +58,27 @@ class main
 			}
 		// zobrazi sablonu
 		$this->smarty->display($sablona);
+	}
 	
+	public function getSession ()
+	{
+		return $this->session;
+	}
+	
+	public function setSession ($value)
+	{
+		$this->session = $value;
+	}
+	
+	public function getPost()
+	{
+		return $this->post;
 	}
 
+	public function getDb()
+	{
+		return $this->pdo;
+	}
 }
 
 ?>
