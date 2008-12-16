@@ -11,7 +11,7 @@ class login
 		$post		= $sl->getPost();
 		$db			= $sl->getDb();
 	
-		
+		$zobraz['chyba'] = false;
 		if(empty($post))
 		{
 			$formular = true;
@@ -29,6 +29,7 @@ class login
 			if ($vysledek)
 			{
 				$sl->setSession($vysledek);
+				
 			}
 			else
 			{
