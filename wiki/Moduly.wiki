@@ -1,25 +1,25 @@
 moduly 
 
 -login
- :změna hesla - všichni
- :odhlášení
+  #změna hesla - všichni
+  #odhlášení
 -studijní materiály
- :prohlížení -student
- :přidávání -učitel
+  #prohlížení -student
+  #přidávání -učitel
 -rozvrh
- :prohlížení - všichni
- :editace(admin) - přednášky,cvičení 
- :přihlásit/odhlásit - student
+  #prohlížení - všichni
+  #editace(admin) - přednášky,cvičení 
+  #přihlásit/odhlásit - student
 -zkoušky
- :přihlášení/odhlášení - student
- :založení - učitel
- :známkování - učitel
+  #přihlášení/odhlášení - student
+  #založení - učitel
+  #známkování - učitel
 -učebny - admin
- :přidat
- :upravit
- :zbourat
+  #přidat
+  #upravit
+  #zbourat
 -předměty
- :přidat
- :upravit - učitel
- :smazat
- :prohlížení - všichni
+  #přidat
+  #upravit - učitel
+  #smazat
+  #prohlížení - všichni
