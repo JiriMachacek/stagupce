@@ -1,0 +1,33 @@
+-- phpMyAdmin SQL Dump
+-- version 2.9.0.3
+-- http://www.phpmyadmin.net
+-- 
+-- Poèítaè: localhost
+-- Vygenerováno: Ètvrtek 18. prosince 2008, 16:53
+-- Verze MySQL: 5.0.51
+-- Verze PHP: 5.2.6
+-- 
+-- Databáze: `stagupce`
+-- 
+
+-- --------------------------------------------------------
+
+-- 
+-- Struktura tabulky `predmety`
+-- 
+
+CREATE TABLE `predmety` (
+  `ID_material` int(10) NOT NULL auto_increment,
+  `popis` varchar(150) NOT NULL,
+  `nazev` varchar(100) NOT NULL,
+  `ID_uzivatel` int(10) NOT NULL,
+  `ID_predmet` int(10) NOT NULL,
+  `upload` date NOT NULL,
+  `pristupne` date NOT NULL,
+  PRIMARY KEY  (`ID_material`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin2 AUTO_INCREMENT=1 ;
+
+-- 
+-- Vypisuji data pro tabulku `predmety`
+-- 
+
