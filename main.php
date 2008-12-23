@@ -30,21 +30,7 @@ class main
 	private function startDb()
 	{
 		//připojení k db
-		if ($_SERVER['SERVER_ADDR'] == '127.0.0.1')
-		{
-			define ('SQL_host', 'localhost');
-			define ('SQL_username', 'root');
-			define ('SQL_password', '');
-			define ('SQL_dbname', 'stagupce');
-		}
-		else
-		{
-			define ('SQL_host', 'localhost');
-			define ('SQL_username', '');
-			define ('SQL_password', '');
-			define ('SQL_dbname', '');
-		}
-		
+	
 		$this->pdo = new PDO('mysql:host='.SQL_host.';dbname='.SQL_dbname, SQL_username, SQL_password);
 		$this->pdo->query("SET CHARACTER SET utf8");
 	}
