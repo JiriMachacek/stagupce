@@ -1,0 +1,115 @@
+/* CSS Document */
+
+body
+{
+	margin:0;
+	padding:0;
+	background:#ffffff; 
+  text-align:center;
+}
+
+#hlavicka
+{
+
+	padding: 10px;
+	background: #dddddd;
+	text-align: center;
+	border-bottom: 1px solid blue; 
+}
+
+#obsah
+{
+	width: 750px;
+	margin:1em auto;
+	border: 1px solid blue;
+	text-align:left;
+
+}
+
+#levypanel
+{
+	float: left;
+	width: 200px;
+	margin: 0;
+	padding: 0;
+
+}
+
+#levypanel-obsah
+{
+	margin:0;
+	padding: 0.5em 1em;
+}
+
+#hlavnipanel
+{
+	margin:0 0 0 200px;
+	padding:0;
+	min-height: 370px;
+ 	border-left: 1px solid blue;
+  height:auto !important;
+  height:400px;
+ 
+}
+
+#hlavnipanel-obsah
+{
+	margin:0;
+	padding: 0.5em 1em;
+}
+
+#panelbezmenu
+{
+
+	padding: 0;
+  min-height: 370px;
+  height:auto !important;
+  height:400px;
+ text-align: center;
+  
+}
+
+
+
+#materialy
+{
+  width: 600px;
+  margin: 0px auto;
+}
+
+#prihlaseni
+{
+  min-height: 50px;
+ 	border: 1px solid blue;
+  height:auto !important;
+  height:50px;
+  margin: 100px 230px 100px 230px;
+  padding: 10px 20px 10px 20px;
+
+}
+
+#prihlaseni-obsah
+{
+  
+
+}
+
+#paticka
+{
+	padding: 10px;
+	border-top: 1px solid blue;
+	background: #dddddd;
+  text-align: right;
+}
+
+hr.cleaner
+{
+	clear:both;
+	display: none;
+
+}
+
+input, label, select, textarea
+{
+	display: block;
+}

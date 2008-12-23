@@ -8,6 +8,7 @@ class main
 	private $pdo;
 	private $session;
 	private $post;
+	private $nazev;
 	
 	public function __construct($session, $post)
 	{
@@ -20,7 +21,7 @@ class main
 	
 	private function startSmarty()
 	{
-		//vytvoøí a nastaví smarty
+		//vytvoÅ™Ã­ a nastavÃ­ smarty
 		$this->smarty = new Smarty;
 		$this->smarty->compile_check = true;
 		$this->smarty->debugging = true;
@@ -28,7 +29,7 @@ class main
 	
 	private function startDb()
 	{
-		//pøipojení k db
+		//pÅ™ipojenÃ­ k db
 		if ($_SERVER['SERVER_ADDR'] == '127.0.0.1')
 		{
 			define ('SQL_host', 'localhost');
@@ -45,8 +46,18 @@ class main
 		}
 		
 		$this->pdo = new PDO('mysql:host='.SQL_host.';dbname='.SQL_dbname, SQL_username, SQL_password);
+		$this->pdo->query("SET CHARACTER SET utf8");
 	}
 		
+	public function ArrayToSql($value, $table)
+	{
+		$keys = implode(",",array_keys($value));
+		$hodnoty = "'".implode("','",array_values($value))."'";
+		$sql = "INSERT INTO $table (".$keys.") VALUES (".$hodnoty.")";
+	
+		return $sql;
+	}
+	
 	
 	public function zobraz ($promenne, $sablona)
 	{
@@ -56,6 +67,9 @@ class main
 			{
 				$this->smarty->assign($key, $promena);
 			}
+		
+		$this->smarty->assign('Titlenazev' , $this->nazev);
+			
 		// zobrazi sablonu
 		$this->smarty->display($sablona);
 	}
@@ -78,6 +92,14 @@ class main
 	public function getDb()
 	{
 		return $this->pdo;
+	}
+	
+	public function setNazev($value)
+	{
+		/*
+		 * @value nastavÃ­ nÃ¡zev strÃ¡nky
+		 */
+		$this->nazev = $value;
 	}
 }
 
