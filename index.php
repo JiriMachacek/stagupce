@@ -1,25 +1,49 @@
 <?php
 session_start();
 include_once ('main.php');
+include_once ('config.php');
+
 if (isset($_POST))
 	$post = $_POST;
 else
 	$post = '';
 
+
+if (isset($_GET))
+	$get = $_GET;
+else
+	$get = '';
+	
+	
 $main = new main($_SESSION, $post);
 
-if (!isset($_SESSION['ID_user']))
+if (!isset($_SESSION['ID_uzivatel']))
 {
 	$modul = 'login';
 	$metoda = 'zobraz';
+	$nazev = 'Login';
 }
 else
 {
 	/*
-	 * použije se zde støída Cseo + CAuth
+	 * @todo pouÅ¾ije se zde stÅ™Ã­da Cseo + CAuth
 	 */
-	$modul = 'test';
+	if (isset($get['modul']))
+	{
+		$modul = $get['modul'];
+		$metoda = $get['metoda'];
+		$nazev = 'Baf';
+	}
+	else
+	{
+		$modul = 'novinky';
+		$metoda = 'zobraz';
+		$nazev = 'Novinky';
+
+	}
 }
+
+$main->setNazev($nazev);
 
 
 
