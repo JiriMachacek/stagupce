@@ -15,20 +15,21 @@ class CSeo
    public function rozeberSeo($hodnoty)
    {
       //rozebrání hodnot pøedané v prom. seo
-      $hodnoty = explode("-",$adresa,3);//urèení modulu a metody a pøipravení zbytku pro rozdìlení - rozdìlí na 3 èásti - modul, metoda a zbytek
-      $seo["modul"] = $hodnoty[0];      //uloží do pole hodnotu modulu
-      $seo["metoda"] = $hodnoty[1];     //uloží do pole hodnotu metody
-      $parametry = explode("-",$hodnoty[2]); //rozdìlí zbytek hodnot
-      $m = count($parametry);//poèet hodnot pøenesených
-      $i=0; //nastavení iteraèní prom. pro cyklus while
+      $hodnoty = explode("-",$adresa,4);       //urèení modulu a metody a pøipravení zbytku pro rozdìlení - rozdìlí na 3 èásti - modul, metoda a zbytek
+      $seo["modul"] = $hodnoty[0];             //uloží do pole hodnotu modulu
+      $seo["metoda"] = $hodnoty[1];            //uloží do pole hodnotu metody
+      $seo["nazev"] = $hodnoty[2];             //uloží do pole hodnotu názvu
+      $parametry = explode("-",$hodnoty[3]);   //rozdìlí zbytek hodnot
+      $m = count($parametry);                  //poèet hodnot pøenesených
+      $i = 0;                                  //nastavení iteraèní prom. pro cyklus while
 
       //cyklus nám bere po dvou záznamy, jeden pøiøadí jako identifikátor v poli a druhý jako hodnotu
       while($i<=$m)//pojede tak dlouho dokud i nebude stejnì velké nebo menší jako poèet rozdìlených hodnot
         {
-        $klic=$parametry[$i]; //první z dvojce hodnot je klíè pole
-        $i++;                 //první inkrementace, pøeneseme se na druhou hodnotu
-        $seo[$klic]=$parametry[$i]; //druhý je pak hodnota
-        $i++;                 //druhá inkrementace, inkremetuje podruhé i, abysme v dalším obìhu cyklu nepracovali s tímto i
+        $klic=$parametry[$i];          //první z dvojce hodnot je klíè pole
+        $i++;                          //první inkrementace, pøeneseme se na druhou hodnotu
+        $seo[$klic]=$parametry[$i];    //druhý je pak hodnota
+        $i++;                          //druhá inkrementace, inkremetuje podruhé i, abysme v dalším obìhu cyklu nepracovali s tímto i
         }
       //------------------------
 
@@ -39,14 +40,30 @@ class CSeo
 //konec metody rozeberSeo, která oddìlí jednotlivé informace o modulu, funkci a názvu jednotlivých záznamù
 
 //zaèátek metody slozSeo, která složí jednotlivé informace o modulu, funkci a názvu jednotlivých záznamù
-   public function slozSeo($modul,$metoda,$nazev)
+   public function slozSeo($modul,$metoda,$nazev,$poleHodnot)
    {
       //zavolání metody která nám upraví název pro seo
       $nazev = upravProSeo($nazev);
       //------------------------
 
+      $m = count($poleHodnot);    //poèet hodnot pøenesených
+      $i = 0;                     //nastavení iteraèní prom. pro cyklus while
+      $hodnoty = "";              //vynulování prom. pro pøidávání hodnot
+
+      //cyklus nám bere po dvou záznamy, jeden pøiøadí jako identifikátor v poli a druhý jako hodnotu
+      while($i<=$m)//pojede tak dlouho dokud i nebude stejnì velké nebo menší jako poèet rozdìlených hodnot
+        {
+        $hodnoty=$hodnoty."-";               //dodání dìlícího znaku
+        $hodnoty=$hodnoty.$poleHodnot[$i];   //první z dvojce hodnot je klíè pole
+        $i++;                                //první inkrementace, pøeneseme se na druhou hodnotu
+        $hodnoty=$hodnoty."-";               //dodání dìlícího znaku
+        $hodnoty=$hodnoty.(upravProSeo($poleHodnot[$i]));   //pro jistotu hodnoty ještì optimalizujeme a odstraníme diakritiku
+        $i++;                                //druhá inkrementace, inkremetuje podruhé i, abysme v dalším obìhu cyklu nepracovali s tímto i
+        }
+      //------------------------
+
       //složení hodnot
-      $seo = $modul."-".$metoda."-".$nazev;
+      $seo = $modul."-".$metoda."-".$nazev.$hodnoty; //složení jednotlivých èástí, prom. hodnoty už v sobì dìlící znaky obsahuje
       //------------------------
 
       //vrácená hodnota obsahuje url adresu optimalizovanou pro seo
