@@ -22,7 +22,7 @@ class CAuth
       //------------------------
 
       //naètení hodnot z databáze o pøihlášeném uživateli
-      $sqlUzivatel = "SELECT role FROM `uzivatele` WHERE `ID_uzivatel`='$this->$ID_uzivatel'";
+      $sqlUzivatel = "SELECT role FROM `uzivatele` WHERE `ID_uzivatel`='$this->ID_uzivatel'";
       $dataUzivatel = $pdo->query($sqlUzivatel)->fetch();
       //------------------------
 
