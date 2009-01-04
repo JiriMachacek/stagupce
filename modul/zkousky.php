@@ -45,9 +45,6 @@ class zkousky
           }
         //konec cyklu------------------------
 
-        //vypsání výsledkù a pokusù zkoušek
-        zkouskyPokusyStudent();
-        //------------------------
     }
     //konec metody student
 
