@@ -33,9 +33,13 @@ class zkousky
           $zobraz["zkousejiciPrimeni"][$i]=polozkaVdb("uzivatel","primeni","WHERE ID_uzivatel = ".$dataZkouska["uzivatel_zkousejici"]); //vyhledá v tabulce uživatelù podle ID pøímìní
           $zobraz["ucebna"][$i]=polozkaVdb("ucebna","nazev","WHERE ID_ucebna = ".$dataZkouska["ID_ucebna"]); //název uèebny - voláme funkci, která nám vrátí hodnotu sloupce nazev v tabulce uèeben
           $zobraz["kapacita"][$i]=$dataZkouska["kapacita"];  //kpacita na zkoušku
-          $zobraz["obsazeno"][$i]=obsazenostZkousky($dataZkouska["ID_zkouska"]);//poèet již pøihlášených lidí
+          $zobraz["obsazeno"][$i]=count(obsazenostZkousky($dataZkouska["ID_zkouska"]));//poèet již pøihlášených lidí
           $zobraz["zacatek"][$i]=$dataZkouska["zacatek"]; //zaèátek zápisu
           $zobraz["konec"][$i]=$dataZkouska["konec"];     //konec zápisu
+          $zobraz["zapsan"][$i]=(zjisteniDuplikace(obsazenostZkousky($dataZkouska["ID_zkouska"]),$this->ID_uzivatel));     /*do hodnoty uloží 1 - pokud je uživatel již zapsán, 0 pokud není.
+          Volá to funkci zjisteniDuplikace, která zjistí zda v poli, kterou pøedá zpátky funkce obsazenost zkoušky je ID pøihlášeného uživatele
+          -toto bude použivot na kontrolu zda se uživatel mùže pøihlásit nebo ne*/
+
           //------------------------
           $i++;                          //inkrementace iteraèní prom.
           }
@@ -68,7 +72,7 @@ class zkousky
     while($i<$m)//prvni cyklus
       {
       $predmety[$j]=$hodiny[$i];
-      if(zjisteniDuplikace($predmety,$hodiny[$i])==1)//metoda zjisti zda je v poli hodnota $hodiny[$i]
+      if(zjisteniDuplikace($predmety,$hodiny[$i])==0)//metoda zjisti zda je v poli hodnota $hodiny[$i]
         {
         $j++;//v pøípadì že pole neobsahuje hodnotu, navýšíme hodnotu pro zapisování, jinak se bude hodnota pøepisovat $predmety[$j] - abysme mìli pouze jeden výskyt pøedmìtu
         }
@@ -83,29 +87,22 @@ class zkousky
     {
     $i=0;//iteraèní prom pro cyklus s jednotlivými záznamy
     $m = count($pole); //zjištìní poètu záznamù v poli
-    $jeTam=1; //nastavení návratové hodnoty na 1 - tímto se vyhneme psali else vìtví v podmínce 1, pokud se záznamy rovnat nebudou, hodnota se nezmìní
+    $jeTam=0; //nastavení návratové hodnoty na 0 - tímto se vyhneme psali else vìtví v podmínce 1, pokud se záznamy rovnat nebudou, hodnota se nezmìní
       while($j<$m) //cyklus který projíždí záznamy v poli
           {
           if($pole[$i]==$hodnota) // podmínka 1 která porovnává zda v poli je pøedaná hodnota
             {
-            $jeTam = 0;//v pøípadì že se hodnota se záznamem v poli rovná, vrátíme hodnotu
+            $jeTam = 1;//v pøípadì že se hodnota se záznamem v poli rovná, vrátíme hodnotu
             }
           }
     return $jeTam; //vrácení hodnoty zda v pøedáném poli pedaná hodnota je
     }
     //konec metody zkouskyPokusyStudent
 
-    //metoda která nám vypíše pokusy zkoušek
-    private function zapsatNaZkousku($ID_predmet);
+    //metoda která nám vypíše pokusy zkoušek - tedy výsledky
+    private function zapsatNaZkousku($ID_zkouska);
     {
-    return 1;
-    }
-    //konec metody zkouskyPokusyStudent
-
-    //metoda která nám vypíše pokusy zkoušek
-    private function zkouskyPokusyStudent();
-    {
-    return 1;
+    return 1; //nevím jak se objektovì ukládá do DB.. ale staèí tady do databáze uložit $this->ID_uzivatel, id zkoušky se pøedává v hlavièce
     }
     //konec metody zkouskyPokusyStudent
 
@@ -117,8 +114,7 @@ class zkousky
     $dataZkouska = $pdo->query($sqlZkouska)->fetch();
     //------------------------
 
-    $m = count($dataZkouska["ID_uzivatel_zkouseny"]); // spoèítání poètu položek vytažené z databáze - tedy obsazení u zkoušky
-    return $m;
+    return  $dataZkouska["ID_uzivatel_zkouseny"]; // vrátí pole s uživateli, kteøí sou pøihlášeni na zoušku - tedy jejich id
     }
     //konec metody zkouskyPokusyStudent
 
