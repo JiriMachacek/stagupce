@@ -4,17 +4,18 @@ body
 {
 	margin:0;
 	padding:0;
-	background:#ffffff; 
-  text-align:center;
+	background:#ffffff;
+	text-align:center;
 }
 
 #hlavicka
 {
-
 	padding: 10px;
 	background: #dddddd;
 	text-align: center;
-	border-bottom: 1px solid blue; 
+	border-bottom: 1px solid blue;
+  font-weight: bold;
+  font-size: 24px;
 }
 
 #obsah
@@ -46,10 +47,10 @@ body
 	margin:0 0 0 200px;
 	padding:0;
 	min-height: 370px;
- 	border-left: 1px solid blue;
-  height:auto !important;
-  height:400px;
- 
+	border-left: 1px solid blue;
+	height:auto !important;
+	height:400px;
+
 }
 
 #hlavnipanel-obsah
@@ -62,44 +63,51 @@ body
 {
 
 	padding: 0;
-  min-height: 370px;
-  height:auto !important;
-  height:400px;
- text-align: center;
-  
+	min-height: 370px;
+	height:auto !important;
+	height:400px;
+	text-align: center;
+
 }
-
-
 
 #materialy
 {
-  width: 600px;
-  margin: 0px auto;
+	width: 600px;
+	margin: 0px auto;
+	border-collapse: collapse;
+
+}
+
+#rozvrh
+{
+	width: 700px;
+	margin: 0px auto;
+	border-collapse: collapse;
+}
+
+#rozvrh th
+{
+	background-color: rgb(149,192,255);
 }
 
 #prihlaseni
 {
-  min-height: 50px;
- 	border: 1px solid blue;
-  height:auto !important;
-  height:50px;
-  margin: 100px 230px 100px 230px;
-  padding: 10px 20px 10px 20px;
+	min-height: 50px;
+	border: 1px solid blue;
+	height:auto !important;
+	height:50px;
+	margin: 100px 230px 100px 230px;
+	padding: 10px 20px 10px 20px;
 
 }
 
-#prihlaseni-obsah
-{
-  
-
-}
 
 #paticka
 {
 	padding: 10px;
 	border-top: 1px solid blue;
 	background: #dddddd;
-  text-align: right;
+	text-align: right;
 }
 
 hr.cleaner
