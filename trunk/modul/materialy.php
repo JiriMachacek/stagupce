@@ -150,11 +150,11 @@ class materialy
 			
 			
 			
-			header('location: ./');
+			header('location: ./?modul=materialy&metoda=zobraz');
 		}
 		
 		//var_dump($session);
-			}
+	}
 	
 	public function vymaz($sl)
 	{
