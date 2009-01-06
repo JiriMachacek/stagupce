@@ -44,7 +44,7 @@ class login
 		}
 		else
 		{
-			header('location: var_dump.php');
+			header('location: ./');
 		}
 		
 		
