@@ -23,6 +23,11 @@ if (!isset($_SESSION['ID_uzivatel']))
 	$metoda = 'zobraz';
 	$nazev = 'Login';
 }
+else if (isset($get['odhlaseni']))
+{
+	session_unset();
+	header('location: ./');
+}
 else
 {
 	/*
@@ -34,7 +39,7 @@ else
 		$metoda = $get['metoda'];
 		$nazev = 'Baf';
 	}
-	else
+	else 
 	{
 		$modul = 'novinky';
 		$metoda = 'zobraz';
