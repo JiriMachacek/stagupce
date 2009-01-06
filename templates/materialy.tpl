@@ -1,4 +1,6 @@
 {include file="hlavicka-menu.tpl"}
+<div id="hlavnipanel">
+<div id="hlavnipanel-obsah">
 <table border="1">
 	<tr>
 		<th>Vložil</th>
@@ -26,4 +28,6 @@
 	{/foreach}
 
 </table>
+</div>
+</div>
 {include file="paticka.tpl"}
