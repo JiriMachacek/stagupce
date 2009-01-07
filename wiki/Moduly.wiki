@@ -1,4 +1,7 @@
-moduly 
+=návrh=
+vykašlat se na editační formuláře... 
+
+=moduly=
 
 -login
   #změna hesla - všichni
