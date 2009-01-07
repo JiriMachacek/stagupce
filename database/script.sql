@@ -1,4 +1,4 @@
-/*
+﻿/*
 Created: 27.12.2008
 Modified: 27.12.2008
 Project: stagupce
@@ -63,20 +63,21 @@ CREATE TABLE `hodina`
 CREATE TABLE `ucebna_typ`
 (
   `ID_typ` Int NOT NULL AUTO_INCREMENT,
-  `typ` Varchar(50)
+  `typ` Varchar(50),
+ PRIMARY KEY (`ID_typ`)
 );
 
-ALTER TABLE `ucebna_typ` ADD PRIMARY KEY (`ID_typ`);
 
 -- Table hodina_student
 
 CREATE TABLE `hodina_student`
 (
   `ID_hodina` Int NOT NULL AUTO_INCREMENT,
-  `ID_uzivatel_student` Int NOT NULL
+  `ID_uzivatel_student` Int NOT NULL,
+PRIMARY KEY (`ID_hodina`,`ID_uzivatel_student`)
 );
 
-ALTER TABLE `hodina_student` ADD PRIMARY KEY (`ID_hodina`,`ID_uzivatel_student`);
+ 
 
 -- Table semestr
 
