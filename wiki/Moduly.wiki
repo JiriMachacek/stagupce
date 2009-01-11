@@ -1,5 +1,5 @@
 =návrh=
-vykašlat se na editační formuláře... 
+Bez editačních formulářů 
 
 =moduly=
 
@@ -20,7 +20,7 @@ vykašlat se na editační formuláře...
 -učebny - admin
   #přidat
   #upravit
-  #zbourat
+  #smazat
 -předměty
   #přidat
   #upravit - učitel
