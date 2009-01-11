@@ -93,7 +93,7 @@ class main
 	}
 	
   
-//začátek metody modulPovolit která ověřuje orpávnění uživatele pro volání modulu
+/*//začátek metody modulPovolit která ověřuje orpávnění uživatele pro volání modulu
    public function modulPovolit($modul, $metoda)
    {
       //nastavení počáteční hodnoty na false - v tomto případě se nám modul nezobrazí a nemusíme ke každé podmínce definovat metodu else
@@ -143,7 +143,7 @@ class main
       return $Povolit;
       //------------------------
    }
-//konec metody modulPovolit která ověřuje orpávnění uživatele pro volání modulu
+//konec metody modulPovolit která ověřuje orpávnění uživatele pro volání modulu*/
 }
 
 ?>
