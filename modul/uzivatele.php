@@ -10,8 +10,8 @@ class uzivatele
 		$post		= $sl->getPost();
 		$db			= $sl->getDb();
 	
-		$sql = "SELECT	jmeno, primeni, typ
-				FROM 	uzivatele";
+		$sql = "SELECT	jmeno, prijmeni, typ
+				FROM 	uzivatel";
 		
 		$zobraz['uzivatele'] = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 		
@@ -74,6 +74,12 @@ class uzivatele
 		
 		if ($formular)
 		{
+			$zobraz['prava'] = array(
+                                admin => 'Admin',
+                                ucitel => 'ucitel',
+                                zak => 'zak');
+  			$zobraz['typ'] =  'zak';
+			
 			$sl->zobraz($zobraz, 'uzivatele-formular.tpl');
 		}
 		else

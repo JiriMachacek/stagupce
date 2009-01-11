@@ -102,7 +102,6 @@ class main
 
       //načtení hodnot z databáze o přihlášeném uživateli
       $sqlUzivatel = "SELECT typ FROM `uzivatel` WHERE `ID_uzivatel`='$this->ID_uzivatel'";
-      echo $sqlUzivatel;
       $dataUzivatel = $this->pdo->query($sqlUzivatel)->fetch();
       //------------------------
 

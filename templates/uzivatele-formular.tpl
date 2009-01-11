@@ -1,9 +1,4 @@
-  $smarty->assign('prava', array(
-                                admin => 'Admin',
-                                ucitel => 'ucitel',
-                                zak => 'zak')
-                                );
-  $smarty->assign('mySelect', zak);
+
 {include file="hlavicka-menu.tpl"}
 <div id="hlavnipanel">
 <div id="hlavnipanel-obsah">
