@@ -10,19 +10,19 @@ Bez editačních formulářů
   # prohlížení -student
   # přidávání -učitel
 -rozvrh
-  #prohlížení - všichni
-  #editace(admin) - přednášky,cvičení 
-  #přihlásit/odhlásit - student
+  # prohlížení - všichni
+  # editace(admin) - přednášky,cvičení 
+  # přihlásit/odhlásit - student
 -zkoušky
-  #přihlášení/odhlášení - student
-  #založení - učitel
-  #známkování - učitel
+  # přihlášení/odhlášení - student
+  # založení - učitel
+  # známkování - učitel
 -učebny - admin
-  #přidat
-  #upravit
-  #smazat
+  # přidat
+  # upravit
+  # smazat
 -předměty
-  #přidat
-  #upravit - učitel
-  #smazat
-  #prohlížení - všichni
+  # přidat
+  # upravit - učitel
+  # smazat
+  # prohlížení - všichni
