@@ -10,7 +10,6 @@ class main
 	private $post;
 	private $nazev;
 	private $modul;
-	private $ID_uzivatel;
 	
     public function __construct($session, $post)
     {
@@ -20,7 +19,6 @@ class main
         $this->setSession($session);
         $this->post = $post;
 
-        $this->ID_uzivatel = $session['ID_uzivatel'];
     }
 	
 	private function startSmarty()
@@ -96,12 +94,17 @@ class main
 //začátek metody modulPovolit která ověřuje orpávnění uživatele pro volání modulu
    public function modulPovolit($modul, $metoda)
    {
+   
+      //předání ID uživatele ze session
+      $ID_uzivatel = $this->session['ID_uzivatel'];
+      //------------------------
+      
       //nastavení počáteční hodnoty na false - v tomto případě se nám modul nezobrazí a nemusíme ke každé podmínce definovat metodu else
       $Povolit=false;
       //------------------------
 
       //načtení hodnot z databáze o přihlášeném uživateli
-      $sqlUzivatel = "SELECT typ FROM `uzivatel` WHERE `ID_uzivatel`='$this->ID_uzivatel'";
+      $sqlUzivatel = "SELECT typ FROM `uzivatel` WHERE `ID_uzivatel`='$ID_uzivatel'";
       $dataUzivatel = $this->pdo->query($sqlUzivatel)->fetch();
       //------------------------
 
