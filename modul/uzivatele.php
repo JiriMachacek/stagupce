@@ -1,5 +1,5 @@
 <?php
-class ucebnytypy
+class uzivatele
 {
 	public function __construct()
 	{
@@ -10,12 +10,12 @@ class ucebnytypy
 		$post		= $sl->getPost();
 		$db			= $sl->getDb();
 	
-		$sql = "SELECT	ID_typ, typ
-				FROM 	ucebna_typ";
+		$sql = "SELECT	jmeno, primeni, typ
+				FROM 	uzivatele";
 		
-		$zobraz['ucebny'] = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+		$zobraz['uzivatele'] = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 		
-		$sl->zobraz($zobraz, 'ucebnytypy.tpl');
+		$sl->zobraz($zobraz, 'uzivatele.tpl');
 
 	}
 	
@@ -42,20 +42,20 @@ class ucebnytypy
 		{
 			$formular = false;
 			
-			$zobraz['typ'] = $post['typ'];
+			$zobraz['login'] = $post['login'];
 			
-			if ($post['typ'] == '') //pokud je typ prázdný zobrazí chybu
+			if ($post['login'] == '') //pokud je login prázdný zobrazí chybu
 			{
-				$zobraz['nazevchyba'] = true;
+				$zobraz['loginchyba'] = true;
 				$formular = true;
 			}
 			else
 			{
 				/**
-				 * testování zda typ učebny již nenexistuje...
+				 * testování zda uživatel již nenexistuje...
 				 */
 				
-				$sql = "SELECT typ FROM ucebna_typ WHERE typ = '$zobraz[typ]'";
+				$sql = "SELECT login FROM ucebna_typ WHERE login = '$zobraz[login]'";
 				
 				$result = $db->query($sql)->fetch();
 				if($result)
@@ -65,7 +65,7 @@ class ucebnytypy
 				}
 				else
 				{
-					$input['typ'] = $post['typ'];
+					$input['loign'] = $post['login'];
 				}
 					
 			}
@@ -74,7 +74,7 @@ class ucebnytypy
 		
 		if ($formular)
 		{
-			$sl->zobraz($zobraz, 'ucebnytypy-formular.tpl');
+			$sl->zobraz($zobraz, 'uzivatele-formular.tpl');
 		}
 		else
 		{
@@ -82,7 +82,7 @@ class ucebnytypy
 			{
 				$db->begintransaction(); //začátek transakce
 				
-				$sql = $sl->ArrayToSql($input, 'ucebna_typ');
+				$sql = $sl->ArrayToSql($input, 'uzivatel');
 
 				$db->query($sql);
 

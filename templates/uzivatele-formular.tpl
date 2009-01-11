@@ -19,11 +19,9 @@
 
    <label for="jmeno">Jméno</label>
    <input type="text" name="jmeno" id="jmeno" size="40" value="{$jmeno}" />
-   {if $jmenochyba}Chyba! nebylo vyplněno jméno nebo bylo vyplněno špatně...{/if}
-   
+  
       <label for="primeni">Přímení</label>
    <input type="text" name="jmeno" id="jmeno" size="40" value="{$jmeno}" />
-   {if $primenichyba}Chyba! nebylo vyplněno jméno nebo bylo vyplněno špatně...{/if}
 
    
    <input type="submit" name="ok" value="Vlož">
