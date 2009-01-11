@@ -130,3 +130,8 @@ hr.cleaner
 	display: none;
 
 }
+
+input, label, select, textarea  
+{  
+ display: block;  
+}
