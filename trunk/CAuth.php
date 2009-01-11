@@ -22,17 +22,17 @@ class CAuth
       //------------------------
 
       //naètení hodnot z databáze o pøihlášeném uživateli
-      $sqlUzivatel = "SELECT role FROM `uzivatele` WHERE `ID_uzivatel`='$this->ID_uzivatel'";
+      $sqlUzivatel = "SELECT typ FROM `uzivatele` WHERE `ID_uzivatel`='$this->ID_uzivatel'";
       $dataUzivatel = $pdo->query($sqlUzivatel)->fetch();
       //------------------------
 
       //naètení hodnot z databáze o požadovaném modulu
-      $sqlModul = "SELECT prava FROM `page` WHERE `nazev`='$modul'";
+      $sqlModul = "SELECT prava FROM `page` WHERE `modul`='$modul'";
       $dataModul = $pdo->query($sqlUzivatel)->fetch();
       //------------------------
 
       //switch který porovnává typ uživatelù povolených pro naètení modulu
-      switch($dataUzivatel["prava"])
+      switch($dataUzivatel["typ"])
       {
         //v pøípadì že se jedná o admina, automaticky povolíme
         case "admin":
