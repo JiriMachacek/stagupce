@@ -40,7 +40,7 @@ else
 		$metoda = $get['metoda'];
 		$nazev = 'Baf';
 		
-			if(!main->modulPovolit($modul,$metoda))
+			if(!$main->modulPovolit($modul,$metoda))
 			{
 			
 		    $modul = 'novinky';

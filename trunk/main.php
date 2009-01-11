@@ -20,7 +20,7 @@ class main
         $this->setSession($session);
         $this->post = $post;
 
-        $this->ID_uzivatel = $session['ID_uzivatel'],;
+        $this->ID_uzivatel = $session['ID_uzivatel'];
     }
 	
 	private function startSmarty()
