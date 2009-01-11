@@ -35,9 +35,19 @@ else
 	 */
 	if (isset($get['modul']))
 	{
+
 		$modul = $get['modul'];
 		$metoda = $get['metoda'];
 		$nazev = 'Baf';
+		
+			if(!main->modulPovolit($modul,$metoda))
+			{
+			
+		    $modul = 'novinky';
+		    $metoda = 'zobraz';
+		    $nazev = 'Novinky';  
+            
+      }
 	}
 	else 
 	{
