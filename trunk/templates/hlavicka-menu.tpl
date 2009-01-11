@@ -5,7 +5,8 @@
 	<a href="./?modul=ucebny&amp;metoda=zobraz">Ucebny</a><br />
 	
 	<a href="./?modul=materialy&amp;metoda=zobraz">Materiály</a>
-	<a href="./?modul=materialy&amp;metoda=vloz">Materiály novy</a>
+	<a href="./?modul=materialy&amp;metoda=vloz">Materiály novy</a><br />
+	<a href="./?modul=uzivatele&amp;metoda=zobraz">Uživatelé</a><br />
 	<a href="./?odhlaseni=1">Odhlášení</a>
 </div>
 </div>
