@@ -93,7 +93,7 @@ class main
 	}
 	
   
-/*//začátek metody modulPovolit která ověřuje orpávnění uživatele pro volání modulu
+//začátek metody modulPovolit která ověřuje orpávnění uživatele pro volání modulu
    public function modulPovolit($modul, $metoda)
    {
       //nastavení počáteční hodnoty na false - v tomto případě se nám modul nezobrazí a nemusíme ke každé podmínce definovat metodu else
@@ -101,13 +101,14 @@ class main
       //------------------------
 
       //načtení hodnot z databáze o přihlášeném uživateli
-      $sqlUzivatel = "SELECT typ FROM `uzivatele` WHERE `ID_uzivatel`='$this->ID_uzivatel'";
-      $dataUzivatel = $pdo->query($sqlUzivatel)->fetch();
+      $sqlUzivatel = "SELECT typ FROM `uzivatel` WHERE `ID_uzivatel`='$this->ID_uzivatel'";
+      echo $sqlUzivatel;
+      $dataUzivatel = $this->pdo->query($sqlUzivatel)->fetch();
       //------------------------
 
       //načtení hodnot z databáze o požadovaném modulu
       $sqlModul = "SELECT prava FROM `page` WHERE `modul`='$modul' and `typ`='$metoda'";
-      $dataModul = $pdo->query($sqlUzivatel)->fetch();
+      $dataModul = $this->pdo->query($sqlUzivatel)->fetch();
       //------------------------
 
       //switch který porovnává typ uživatelů povolených pro načtení modulu
@@ -143,7 +144,7 @@ class main
       return $Povolit;
       //------------------------
    }
-//konec metody modulPovolit která ověřuje orpávnění uživatele pro volání modulu*/
+//konec metody modulPovolit která ověřuje orpávnění uživatele pro volání modulu
 }
 
 ?>
