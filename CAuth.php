@@ -15,7 +15,7 @@ class CAuth
 //konec metody __konstruct
 
 //zaèátek metody modulPovolit která ovìøuje orpávnìní uživatele pro volání modulu
-   public function modulPovolit($seo)
+   public function modulPovolit($modul)
    {
       //nastavení poèáteèní hodnoty na false - v tomto pøípadì se nám modul nezobrazí a nemusíme ke každé podmínce definovat metodu else
       $Povolit=false;
@@ -27,12 +27,12 @@ class CAuth
       //------------------------
 
       //naètení hodnot z databáze o požadovaném modulu
-      $sqlModul = "SELECT role FROM `page` WHERE `seo`='$seo'";
+      $sqlModul = "SELECT prava FROM `page` WHERE `nazev`='$modul'";
       $dataModul = $pdo->query($sqlUzivatel)->fetch();
       //------------------------
 
       //switch který porovnává typ uživatelù povolených pro naètení modulu
-      switch($dataUzivatel["role"])
+      switch($dataUzivatel["prava"])
       {
         //v pøípadì že se jedná o admina, automaticky povolíme
         case "admin":
@@ -42,7 +42,7 @@ class CAuth
 
         // v pøípadì že se jedná o uèitele zjistíme jestli je pro nìj modul urèen, nebo jestli je urèen pro všechny
         case "ucitel":
-          if($data["role"]="ucitel" && $data["role"]="vsichni")
+          if($dataModul["prava"]="ucitel" && $dataModul["prava"]="vsichni")
             {
               $Povolit=true;
             }
@@ -51,7 +51,7 @@ class CAuth
 
         // v pøípadì že se jedná o žáka zjistíme jestli je pro nìj modul urèen, nebo jestli je urèen pro všechny
         case "zak":
-          if($data["role"]="zak" && $data["role"]="vsichni")
+          if($dataModul["prava"]="zak" && $dataModul["prava"]="vsichni")
             {
               $Povolit=true;
             }

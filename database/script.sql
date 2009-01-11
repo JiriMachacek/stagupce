@@ -93,13 +93,14 @@ CREATE TABLE `semestr`
 
 -- Table page
 
-CREATE TABLE `page`
-(
-  `ID_page` Int NOT NULL AUTO_INCREMENT,
-  `modul` Varchar(50) NOT NULL,
-  `typ` Enum('zobraz','uprav','vloz','vymaz') NOT NULL,
- PRIMARY KEY (`ID_page`)
-);
+CREATE TABLE IF NOT EXISTS `page` (
+  `ID_page` int(11) NOT NULL AUTO_INCREMENT,
+  `modul` varchar(50) COLLATE utf8_czech_ci NOT NULL,
+  `typ` enum('zobraz','uprav','vloz','vymaz') COLLATE utf8_czech_ci NOT NULL,
+  `prava` enum('admin','ucitel','zak','vsichni') COLLATE utf8_czech_ci NOT NULL,
+  PRIMARY KEY (`ID_page`),
+  UNIQUE KEY `modul` (`modul`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
 
 ALTER TABLE `page` ADD UNIQUE `modul` (`modul`);
 
