@@ -11,7 +11,7 @@
 
 	{foreach from=$uzivatele item=uzivatel}
 	<tr>
-		<td>{$uzivatel.typ} || {$uzivatel.jmeno} {$uzivatel.primeni} </td>
+		<td>{$uzivatel.typ} || {$uzivatel.jmeno} {$uzivatel.prijmeni} </td>
 		<td>edit smazat</td>
 	</tr> 
 	{foreachelse}

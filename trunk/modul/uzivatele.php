@@ -30,9 +30,10 @@ class uzivatele
 		$post		= $sl->getPost();
 		$db			= $sl->getDb();
 	
-		$zobraz['typchyba'] = false;
-		$zobraz['typchybaexistuje'] = false;
-		$zobraz['typ'] = '';
+	  $zobraz['heslochyba'] = false;
+		$zobraz['loginchyba'] = false;
+		$zobraz['loginchybaexistuje'] = false;
+		$zobraz['login'] = '';
 		
 		if(empty($post))
 		{
@@ -49,6 +50,11 @@ class uzivatele
 				$zobraz['loginchyba'] = true;
 				$formular = true;
 			}
+			elseif ($post['heslo'] == '') //pokud je heslo prázdný zobrazí chybu
+			{
+				$zobraz['heslochyba'] = true;
+				$formular = true;
+			}
 			else
 			{
 				/**
@@ -61,7 +67,7 @@ class uzivatele
 				if($result)
 				{
 					$formular = true;
-					$zobraz['typchybaexistuje'] = true;
+					$zobraz['loginchybaexistuje'] = true;
 				}
 				else
 				{
@@ -76,9 +82,9 @@ class uzivatele
 		{
 			$zobraz['prava'] = array(
                                 admin => 'Admin',
-                                ucitel => 'ucitel',
-                                zak => 'zak');
-  			$zobraz['typ'] =  'zak';
+                                ucitel => 'Učitel',
+                                zak => 'Žák');
+  			$zobraz['vybrano'] =  'Žák';
 			
 			$sl->zobraz($zobraz, 'uzivatele-formular.tpl');
 		}
