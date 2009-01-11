@@ -4,11 +4,11 @@ Bez editačních formulářů
 =moduly=
 
 -login
-  #změna hesla - všichni
-  #odhlášení
+  # změna hesla - všichni
+  # odhlášení
 -studijní materiály
-  #prohlížení -student
-  #přidávání -učitel
+  # prohlížení -student
+  # přidávání -učitel
 -rozvrh
   #prohlížení - všichni
   #editace(admin) - přednášky,cvičení 
