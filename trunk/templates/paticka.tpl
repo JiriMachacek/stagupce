@@ -2,7 +2,7 @@
 <hr class="cleaner" />
 
 <div id="paticka">
-copyright <a href="http://www.machy.eu" title="maChy">maChy</a> 2008
+vytvořil Jirka Macháček, Lukáš Janda, Martin Kocourek, Vojta Vlkovský 2009
 </div>
 
 </div>

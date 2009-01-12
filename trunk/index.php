@@ -15,7 +15,7 @@ else
 	$get = '';
 	
 	
-$main = new main($_SESSION, $post);
+$main = new main($_SESSION, $post, $get);
 
 if (!isset($_SESSION['ID_uzivatel']))
 {
@@ -38,7 +38,7 @@ else
 
 		$modul = $get['modul'];
 		$metoda = $get['metoda'];
-		$nazev = 'Baf';
+		$nazev = 'beta tests';
 		
 			if(!$main->modulPovolit($modul,$metoda))
 			{
@@ -80,5 +80,5 @@ else if ($metoda == 'vymaz')
 
 $_SESSION = $main->getSession();
 
-var_dump($_SESSION);
+//var_dump($_SESSION);
 ?>
