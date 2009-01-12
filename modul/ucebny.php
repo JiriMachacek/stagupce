@@ -31,10 +31,12 @@ class ucebny
 		$post		= $sl->getPost();
 		$db			= $sl->getDb();
 	
+		
 		$zobraz['nazevchyba'] = false;
 		$zobraz['nazevchybaexistuje'] = false;
 		$zobraz['kapacitachyba'] = false;
 		
+		$zobraz['nazev'] = '';
 		$zobraz['typ'] = '';
 		$zobraz['kapacita'] = '';
 		
