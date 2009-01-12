@@ -62,7 +62,7 @@ class uzivatele
 				 */
 				
 				$sql = "SELECT login FROM ucebna_typ WHERE login = '$zobraz[login]'";
-				
+				echo $sql;
 				$result = $db->query($sql)->fetch();
 				if($result)
 				{
@@ -81,9 +81,9 @@ class uzivatele
 		if ($formular)
 		{
 			$zobraz['prava'] = array(
-                                admin => 'Admin',
-                                ucitel => 'Učitel',
-                                zak => 'Žák');
+                                'admin' => 'Admin',
+                                'ucitel' => 'Učitel',
+                                'zak' => 'Žák');
   			$zobraz['vybrano'] =  'Žák';
 			
 			$sl->zobraz($zobraz, 'uzivatele-formular.tpl');
