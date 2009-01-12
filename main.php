@@ -10,6 +10,7 @@ class main
 	private $post;
 	private $nazev;
 	private $modul;
+	private $get;
 	
     public function __construct($session, $post)
     {
@@ -88,6 +89,15 @@ class main
 		 * @value nastaví název stránky
 		 */
 		$this->nazev = $value;
+	}
+	
+  public function getGet ()
+	{
+		return $this->get;
+	}
+	public function setGet ($value)
+	{
+		$this->get = $value;
 	}
 	
   
