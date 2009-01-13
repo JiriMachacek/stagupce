@@ -27,7 +27,7 @@ class main
 		//vytvoří a nastaví smarty
 		$this->smarty = new Smarty;
 		$this->smarty->compile_check = true;
-		$this->smarty->debugging = true;
+		$this->smarty->debugging = false;
 	}
 	
 	private function startDb()
