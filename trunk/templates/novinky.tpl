@@ -27,6 +27,7 @@
 	{/foreach}
 
 </table>
+
 </div>
 </div>
 {include file="paticka.tpl}

@@ -6,17 +6,39 @@ body
 	padding:0;
 	background:#ffffff;
 	text-align:center;
+	background-image: url(../sablony/pozadi.jpg);
+	background-repeat: repeat;
 	
+}
+
+a:link {text-decoration: none; color: blue;}
+a:hover {text-decoration: none; color: red;}
+a:visited {text-decoration: none; color: blue;}
+
+table
+{
+	width: 510px;
+	margin: 0px auto;
+	border-collapse: collapse;
+	border: 1px solid black;
+  text-align: center; 
+  margin: 10px 0px 10px 0px ; 
+}
+
+table th{
+  background-color: #C3C7BC; 
 }
 
 #hlavicka
 {
-	padding: 10px;
+	padding: 20px 0px 20px 0px;
 	background: #dddddd;
 	text-align: center;
 	border-bottom: 1px solid blue;
   font-weight: bold;
   font-size: 24px;
+  height: 30px;
+
 }
 
 #obsah
@@ -25,6 +47,7 @@ body
 	margin:1em auto;
 	border: 1px solid blue;
 	text-align:left;
+	background-color: white;
 
 }
 
@@ -39,9 +62,33 @@ body
 
 #levypanel-obsah
 {
-	margin:0;
-	padding: 0.5em 1em;
+ margin-top: 20px;
+ text-align: center;
+  
 }
+
+#menu a, #menu a:visited {
+  
+  text-decoration:none; 
+  text-align:center;  
+  color: #2B50FF; 
+  display:block; 
+  width:85%;
+  padding:0.25em;
+  margin:0.5em auto;
+  letter-spacing: 0.7px;
+  font: normal bold 12px Tahoma;
+  }
+
+#menu a:hover {
+  top:2px;
+  color: #0000CE;
+  letter-spacing: 1px;
+  border-width: 1px 0px 1px 0px;
+  border-color: blue;
+  border-style: solid none solid none;
+  }
+
 
 #hlavnipanel
 {
@@ -50,7 +97,7 @@ body
 	min-height: 370px;
 	border-left: 1px solid blue;
 	height:auto !important;
-	height:400px;
+  height: 400px;
 
 }
 
@@ -63,7 +110,7 @@ body
 #hlavnipanel-obsah h1
 {
 	font: normal bold 18px Tahoma;
-	color: rgb(51,51,204);
+	color: #1161AE;
 }
 
 #hlavnipanel-obsah p
@@ -71,37 +118,6 @@ body
 	font: normal 14px Tahoma;
 	color: black;
 	padding-left: 1em;
-}
-
-#panelbezmenu
-{
-
-	padding: 0;
-	min-height: 370px;
-	height:auto !important;
-	height:400px;
-	text-align: center;
-
-}
-
-#materialy
-{
-	width: 600px;
-	margin: 0px auto;
-	border-collapse: collapse;
-
-}
-
-#rozvrh
-{
-	width: 700px;
-	margin: 0px auto;
-	border-collapse: collapse;
-}
-
-#rozvrh th
-{
-	background-color: rgb(149,192,255);
 }
 
 #prihlaseni
@@ -114,7 +130,6 @@ body
 	padding: 10px 20px 10px 20px;
 
 }
-
 
 #paticka
 {
@@ -131,7 +146,7 @@ hr.cleaner
 
 }
 
-input, label, select, textarea  
+input, label, select, textarea, li  
 {  
  display: block;  
 }
