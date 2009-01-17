@@ -10,11 +10,15 @@ class predmet
 		$post		= $sl->getPost();
 		$db			= $sl->getDb();
 	
-		$sql = "SELECT	prednaska, nazev, zkouska, pocet_kreditu
-				FROM 	predmet u
-				JOIN 	uzivatele ut ON u.ID_uzivatel_garant = ut.ID_uzivatel";
+		$sql = "SELECT	ID_predmet,
+						nazev,
+						zkouska,
+						pocet_kreditu,
+						concat(jmeno, ' ', prijmeni) AS jmeno
+				FROM 	predmet p
+				JOIN 	uzivatel u ON p.ID_uzivatel_garant = u.ID_uzivatel";
 		
-		$zobraz['predmet'] = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+		$zobraz['predmety'] = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 		
 		$sl->zobraz($zobraz, 'predmet.tpl');
 
@@ -34,12 +38,18 @@ class predmet
 		$zobraz['nazevchyba'] = false;
 		$zobraz['nazevchybaexistuje'] = false;
 		$zobraz['pocet_kredituchyba'] = false;
+		$zobraz['chybagarant'] = false;
 		
-		$zobraz['nazev'] = '';
-		$zobraz['pocet_kreditu'] = '';
+			$zobraz['nazev'] = '';
+			$zobraz['pocet_kreditu'] = '';
+			$zobraz['garant'] = 'nikdo';
+			$zobraz['zkouska'] = 'ne';
+			$zobraz['kredit'] = '';
 		
 		if(empty($post))
 		{
+
+			
 			$formular = true;
 		}
 		else
@@ -47,7 +57,11 @@ class predmet
 			$formular = false;
 			
 			$zobraz['nazev'] = $post['nazev'];
+			
 			$zobraz['pocet_kreditu'] = $post['pocet_kreditu'];
+			$zobraz['garant'] = $post['garant'];
+			$input['zkouska'] = $zobraz['zkouska'] = $post['zkouska'];
+
 			
 			if ($post['nazev'] == '') //pokud je nazev prázdný zobrazí chybu
 			{
@@ -74,16 +88,24 @@ class predmet
 				}
 			}
 			
-			if ($post['pocet_kreditu'] == '' || $post['pocet_kreditu'] <= 0 || is_int($post['pocet_kreditu']))
+			if ($post['pocet_kreditu'] == '' || $post['pocet_kreditu'] <= 0 || !is_numeric($post['pocet_kreditu']))
 			{
 				$formular = true;
-				$zobraz['pocet_kreditu'] = true;
+				$zobraz['pocet_kredituchyba'] = true;
 			}
 			else
 			{
 				$input['pocet_kreditu'] = $post['pocet_kreditu'];
 			}
-			
+			if(!is_numeric($post['garant']))
+			{
+				$formular = true;
+				$zobraz['chybagarant'] = true;
+			}
+			else
+			{
+				$input['ID_uzivatel_garant'] = $post['garant'];
+			}
 		}
 		
 		if ($formular)
@@ -91,15 +113,24 @@ class predmet
 			/*
 			 * @todo předměty
 			 */
-			$sql = "SELECT ID_uzivatel_garant, typ FROM predmet ORDER BY typ";
+			$sql = "SELECT	ID_uzivatel,
+							concat(jmeno, ' ', prijmeni) AS ucitel
+					FROM	uzivatel
+					WHERE	typ = 2
+					ORDER BY prijmeni";
+
+					
 			$result = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
-			
+			$zobraz['ucitele']['nikdo'] = '---';
 			foreach($result as $typ) // převede na pole vhodné pro zobrazení....
 			{
-				$key = $typ['ID_typ'];
-				$zobraz['typy'][$key] = $typ['typ'];
+				$key = $typ['ID_uzivatel'];
+				$zobraz['ucitele'][$key] = $typ['ucitel'];
 			}
+			
+			$zobraz['anoNe']['ne'] = 'ne';
+			$zobraz['anoNe']['ano'] = 'ano';
 			
 			$sl->zobraz($zobraz, 'predmet-formular.tpl');
 		}
@@ -109,7 +140,7 @@ class predmet
 			{
 				$db->begintransaction(); //začátek transakce
 				
-				$sql = $sl->ArrayToSql($input, 'nazev');
+				$sql = $sl->ArrayToSql($input, 'predmet');
 
 				$db->query($sql);
 
@@ -135,8 +166,37 @@ class predmet
 		
 	public function vymaz($sl)
 	{
-		return 1;
+		$db			= $sl->getDb(); // // zde je vytáhne databázový objekt PDO
+		$get		= $sl->getGet();
+		
+		if (isset($get['predmet']))
+		{
+			$id = $get['predmet'];
+		
+			try
+			{
+				$db->begintransaction(); //začátek transakce
+
+				$sql = "DELETE FROM predmet WHERE ID_predmet = '$id'";
+
+				$db->query($sql);
+
+				$db->commit(); //commitnutí tranaskce
+			}
+			catch (PDOException $e)
+			{
+				/**
+				 * když byla zachycena vyjímka v SQL zobrazí se chyba a konec
+				 */
+				$pdo->rollBack();
+				die($e);
+			}
+		
+		}
+		
+		header('location: ./?modul=predmet&metoda=zobraz');
 	}
+
 
 }
 

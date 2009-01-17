@@ -29,7 +29,7 @@
 	</tr> 
 	{foreachelse}
 	<tr>
-		<td colspan="4">žádné učebny</td>
+		<td colspan="9">Nejsou žádné předměty k rozvrhu</td>
 	</tr>
 	{/foreach}
 

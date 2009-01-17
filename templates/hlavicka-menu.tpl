@@ -10,6 +10,8 @@
 	<a href="./?modul=uzivatele&amp;metoda=zobraz">Uživatelé</a>
 	<a href="./?modul=rozvrhzalozeni&amp;metoda=zobraz">Založení rozvrhu</a>
 	<a href="./?modul=rozvrhprihlaseni&amp;metoda=zobraz">Přihlášení předmětu</a>
+	<br />
+	<a href="./?modul=predmet&amp;metoda=zobraz">Předměty</a>
 	<a href="./?odhlaseni=1">Odhlášení</a>
 </div>
 </div>
