@@ -7,7 +7,6 @@
   <link type="text/css" href="css/style.css" rel="stylesheet">
   </head>
   <body>
- <body>
 
 <div id="obsah">
 <div id="hlavicka">

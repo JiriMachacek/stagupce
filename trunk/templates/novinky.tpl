@@ -1,7 +1,7 @@
 {include file="hlavicka-menu.tpl"}
 <div id="hlavnipanel">
 <div id="hlavnipanel-obsah">
-
+{html_select_time use_24_hours=true}
 <table border="1">
 	<tr>
 		<th>Autor</th>
