@@ -3,7 +3,18 @@
 <div id="levypanel">
 <div id="levypanel-obsah">
 <div id="menu">  
-	<a href="./?modul=ucebny&amp;metoda=zobraz">Ucebny</a>
+	
+  {if $private_uzivatel_typ == 'admin'}
+  <!-- uživatel admin -->
+  Admin
+  {elseif $private_uzivatel_typ == 'učitel'}
+  <!-- uživatel učitel -->
+  Učitel
+  {elseif $private_uzivatel_typ == 'student'}
+  <!-- uživatel student -->
+  Student
+  {/if}
+  <a href="./?modul=ucebny&amp;metoda=zobraz">Ucebny</a>
 	
 	<a href="./?modul=materialy&amp;metoda=zobraz">Materiály</a>
 	<a href="./?modul=materialy&amp;metoda=vloz">Materiály novy</a>

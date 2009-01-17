@@ -16,10 +16,10 @@ else
 	
 
 $main = new main($_SESSION, $post, $get);
-$ID_uzivatel = $_SESSION['ID_uzivatel'];
  
 if (!isset($_SESSION['ID_uzivatel']))
 {
+
 	$modul = 'login';
 	$metoda = 'zobraz';
 	$nazev = 'Login';
@@ -42,7 +42,7 @@ else
 		$metoda = $get['metoda'];
 		$nazev = 'beta tests';
 		
-			if($main->modulPovolit($modul,$metoda,$ID_uzivatel)!=1)
+			if($main->modulPovolit($modul,$metoda)!=1)
 			{
 			
 		    $modul = 'novinky';
@@ -74,7 +74,7 @@ if (!isset($metoda))
 
 else if ($metoda == 'zobraz')
   {
-	  if($main->modulPovolit($modul,$metoda,$ID_uzivatel)==1)
+	  if($main->modulPovolit($modul,$metoda)==1)
 	  {
     $stranka->zobraz($main);
     }
@@ -85,7 +85,7 @@ else if ($metoda == 'zobraz')
   }
 else if ($metoda == 'uprav')
   {
-	  if($main->modulPovolit($modul,$metoda,$ID_uzivatel)==1)
+	  if($main->modulPovolit($modul,$metoda)==1)
 	  {
 	    $stranka->uprav($main);
     }
@@ -96,7 +96,7 @@ else if ($metoda == 'uprav')
   }
 else if ($metoda == 'vloz')
   {
-	  if($main->modulPovolit($modul,$metoda,$ID_uzivatel)==1)
+	  if($main->modulPovolit($modul,$metoda)==1)
 	  {
 	    $stranka->vloz($main);
     }
@@ -107,7 +107,7 @@ else if ($metoda == 'vloz')
   }
 else if ($metoda == 'vymaz')
   {
-	  if($main->modulPovolit($modul,$metoda,$ID_uzivatel)==1)
+	  if($main->modulPovolit($modul,$metoda)==1)
 	  {
 	    $stranka->vymaz($main);
     }

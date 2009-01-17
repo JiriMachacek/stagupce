@@ -109,9 +109,16 @@ class main
 	
   
 //začátek metody modulPovolit která ověřuje orpávnění uživatele pro volání modulu
-   public function modulPovolit($modul,$metoda,$ID_uzivatel)
+   public function modulPovolit($modul,$metoda)
    {
-      
+      if(IsSet($this->session['ID_uzivatel']))
+      {
+      $ID_uzivatel=$this->session['ID_uzivatel'];
+      }
+      else
+      {
+      $ID_uzivatel=0;
+      }
       //nastavení počáteční hodnoty na false - v tomto případě se nám modul nezobrazí a nemusíme ke každé podmínce definovat metodu else
       $Povolit=false;
       //------------------------
@@ -125,7 +132,9 @@ class main
       $sqlModul = "SELECT prava FROM `page` WHERE `modul`='$modul' and `typ`='$metoda'";
       $dataModul = $this->pdo->query($sqlUzivatel)->fetch();
       //------------------------
-
+      
+      $this->smarty->assign('private_uzivatel_typ' , $dataUzivatel["typ"]); //posílá typ uživatele do šablony
+      
       //switch který porovnává typ uživatelů povolených pro načtení modulu
       switch($dataUzivatel["typ"])
       {
@@ -152,6 +161,13 @@ class main
             }
         break;
         //------------------------
+        
+        default:
+          if($dataModul["prava"]="vsichni")
+            {
+              $Povolit=true;
+            }
+        break;        
       }
       //konec switche------------------------
 
