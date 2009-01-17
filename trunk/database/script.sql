@@ -1,4 +1,4 @@
-﻿/*
+/*
 Created: 27.12.2008
 Modified: 27.12.2008
 Project: stagupce
@@ -19,7 +19,7 @@ CREATE TABLE `ucebna`
   `nazev` Varchar(50) NOT NULL,
   `kapacita` Int NOT NULL,
  PRIMARY KEY (`ID_ucebna`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
 
 ALTER TABLE `ucebna` ADD UNIQUE `nazev` (`nazev`);
 
@@ -36,7 +36,7 @@ CREATE TABLE `predmet`
   `zkouska` Enum('ne','ano') NOT NULL
   COMMENT 'ano, ne',
  PRIMARY KEY (`ID_predmet`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
 
 -- Table hodina
 
@@ -56,7 +56,7 @@ CREATE TABLE `hodina`
   COMMENT 'vsechny, lichy, sudy',
   `kapacita` Int NOT NULL,
  PRIMARY KEY (`ID_hodina`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1;
 
 -- Table ucebna_typ
 
@@ -65,7 +65,7 @@ CREATE TABLE `ucebna_typ`
   `ID_typ` Int NOT NULL AUTO_INCREMENT,
   `typ` Varchar(50),
  PRIMARY KEY (`ID_typ`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1;
 
 
 -- Table hodina_student
@@ -75,7 +75,7 @@ CREATE TABLE `hodina_student`
   `ID_hodina` Int NOT NULL AUTO_INCREMENT,
   `ID_uzivatel_student` Int NOT NULL,
 PRIMARY KEY (`ID_hodina`,`ID_uzivatel_student`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci ROW_FORMAT=COMPACT;
 
  
 
@@ -89,7 +89,7 @@ CREATE TABLE `semestr`
   `typ` Enum('letní','zimní')
   COMMENT 'letni, zimni',
  PRIMARY KEY (`ID_semestr`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
 
 -- Table page
 
@@ -102,7 +102,6 @@ CREATE TABLE IF NOT EXISTS `page` (
   UNIQUE KEY `modul` (`modul`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
 
-ALTER TABLE `page` ADD UNIQUE `modul` (`modul`);
 
 -- Table uzivatel
 
@@ -116,7 +115,7 @@ CREATE TABLE `uzivatel`
   `login` Varchar(20) NOT NULL,
   `heslo` Char(40),
  PRIMARY KEY (`ID_uzivatel`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
 
 ALTER TABLE `uzivatel` ADD UNIQUE `login` (`login`);
 
@@ -130,7 +129,7 @@ CREATE TABLE `novinky`
   `nazev` Varchar(50),
   `popis` Text,
  PRIMARY KEY (`ID_novinky`,`ID_uzivatel`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
 
 -- Table materialy
 
@@ -146,7 +145,7 @@ CREATE TABLE `materialy`
   `velikost` Int,
   `soubor` Varchar(50),
  PRIMARY KEY (`ID_material`,`ID_uzivatel`,`ID_predmet`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
 
 -- Table zkouska_termin
 
@@ -160,7 +159,7 @@ CREATE TABLE `zkouska_termin`
   `konec` Datetime NOT NULL,
   `kapacita` Int NOT NULL,
  PRIMARY KEY (`ID_zkouska`,`ID_uzivatel_zkousejici`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
 
 -- Table zkouska_student
 
@@ -171,7 +170,7 @@ CREATE TABLE `zkouska_student`
   `ID_uzivatel_zkouseny` Int NOT NULL,
   `pokus` Tinyint NOT NULL,
   `hodnoceni` Tinyint
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci ROW_FORMAT=COMPACT;
 
 ALTER TABLE `zkouska_student` ADD PRIMARY KEY (`ID_zkouska`,`ID_uzivatel_zkousejici`,`ID_uzivatel_zkouseny`);
 

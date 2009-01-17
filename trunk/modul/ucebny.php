@@ -10,7 +10,7 @@ class ucebny
 		$post		= $sl->getPost();
 		$db			= $sl->getDb();
 	
-		$sql = "SELECT	typ, nazev, kapacita
+		$sql = "SELECT	ID_ucebna, typ, nazev, kapacita
 				FROM 	ucebna u
 				JOIN 	ucebna_typ ut ON u.ID_typ = ut.ID_typ";
 		
@@ -35,6 +35,7 @@ class ucebny
 		$zobraz['nazevchyba'] = false;
 		$zobraz['nazevchybaexistuje'] = false;
 		$zobraz['kapacitachyba'] = false;
+		$zobraz['typchyba'] = false;
 		
 		$zobraz['nazev'] = '';
 		$zobraz['typ'] = '';
@@ -49,8 +50,18 @@ class ucebny
 			$formular = false;
 			
 			$zobraz['nazev'] = $post['nazev'];
-			$input['ID_typ'] = $zobraz['typ'] = $post['typ'];
+			$zobraz['typ'] = $post['typ'];
 			$zobraz['kapacita'] = $post['kapacita'];
+			
+			if (!is_numeric($post['typ']))
+			{
+				$zobraz['typchyba'] = true;
+				$formular = true;
+			}
+			else
+			{
+				$input['ID_typ'] = $post['typ'];
+			}
 			
 			if ($post['nazev'] == '') //pokud je typ prázdný zobrazí chybu
 			{
@@ -97,11 +108,14 @@ class ucebny
 			$sql = "SELECT ID_typ, typ FROM ucebna_typ ORDER BY typ";
 			$result = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
-			
-			foreach($result as $typ) // převede na pole vhodné pro zobrazení....
-			{
-				$key = $typ['ID_typ'];
-				$zobraz['typy'][$key] = $typ['typ'];
+			$zobraz['typy']['nic'] = '---';
+			if ($result)
+			{			
+				foreach($result as $typ) // převede na pole vhodné pro zobrazení....
+				{
+					$key = $typ['ID_typ'];
+					$zobraz['typy'][$key] = $typ['typ'];
+				}
 			}
 			
 			$sl->zobraz($zobraz, 'ucebny-formular.tpl');
@@ -138,7 +152,35 @@ class ucebny
 		
 	public function vymaz($sl)
 	{
-		return 1;
+		$db			= $sl->getDb(); // // zde je vytáhne databázový objekt PDO
+		$get		= $sl->getGet();
+		
+		if (isset($get['ucebna']))
+		{
+			$id = $get['ucebna'];
+		
+			try
+			{
+				$db->begintransaction(); //začátek transakce
+
+				$sql = "DELETE FROM ucebna WHERE ID_ucebna = '$id'";
+
+				$db->query($sql);
+
+				$db->commit(); //commitnutí tranaskce
+			}
+			catch (PDOException $e)
+			{
+				/**
+				 * když byla zachycena vyjímka v SQL zobrazí se chyba a konec
+				 */
+				$pdo->rollBack();
+				die($e);
+			}
+		
+		}
+		
+		header('location: ./?modul=ucebny&metoda=zobraz');
 	}
 
 }

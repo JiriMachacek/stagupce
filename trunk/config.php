@@ -1,6 +1,11 @@
 <?php
 define('cestaMaterialy', './soubory/');
 
+define('smartyDebug', 'true');
+/**
+ *@param bool smartyDebug nastavuje debugování smarty šablo
+ */
+
 if ($_SERVER['SERVER_ADDR'] == '127.0.0.1')
 {
 	define ('SQL_host', 'localhost');

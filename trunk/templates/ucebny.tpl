@@ -1,7 +1,7 @@
 {include file="hlavicka-menu.tpl"}
 <div id="hlavnipanel">
 <div id="hlavnipanel-obsah">
-
+<h2>Učebny</h2>
 <a href="./?modul=ucebny&metoda=vloz">Nová učebna</a><br />
 <a href="./?modul=ucebnytypy&metoda=zobraz">Spravovat typy</a><br />
 <table>
@@ -17,7 +17,7 @@
 		<td>{$ucebna.nazev}</td>
 		<td>{$ucebna.typ}</td>
 		<td>{$ucebna.kapacita}</td>
-		<td>edit smazat</td>
+		<td><a href="./?modul=ucebny&amp;metoda=vymaz&amp;ucebna={$ucebna.ID_ucebna}">vymazat</a></td>
 	</tr> 
 	{foreachelse}
 	<tr>

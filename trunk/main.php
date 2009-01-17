@@ -12,22 +12,29 @@ class main
 	private $modul;
 	private $get;
 	
-    public function __construct($session, $post)
+    public function __construct($session, $post, $get)
     {
         $this->startSmarty();
         $this->startDb();
         
         $this->setSession($session);
         $this->post = $post;
+        
+        $this->setGet($get);
 
     }
 	
 	private function startSmarty()
 	{
-		//vytvoří a nastaví smarty
+		/**
+		 *@access public
+		 *@category smarty
+		 *
+		 *startuje Smarty objekt
+		 */		 		 		
 		$this->smarty = new Smarty;
 		$this->smarty->compile_check = true;
-		$this->smarty->debugging = false;
+		$this->smarty->debugging = smartyDebug;
 	}
 	
 	private function startDb()
@@ -95,7 +102,7 @@ class main
 	{
 		return $this->get;
 	}
-	public function setGet ($value)
+	private function setGet ($value)
 	{
 		$this->get = $value;
 	}

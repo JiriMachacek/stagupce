@@ -1,7 +1,7 @@
 {include file="hlavicka-menu.tpl"}
 <div id="hlavnipanel">
 <div id="hlavnipanel-obsah">
-
+<h2>Nový typ učebny</h2>
 <form action="./?modul=ucebnytypy&amp;metoda=vloz" method="post">
    
    <label for="typ">Typ učebny</label>
