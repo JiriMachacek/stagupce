@@ -12,5 +12,5 @@
 <div id="hlavicka">
 <h1>STAGUPCE - {$Titlenazev}</h1>
 </div>
-
+ 
 <hr class="cleaner" />
