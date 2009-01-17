@@ -107,7 +107,35 @@ class ucebnytypy
 	
 	public function vymaz($sl)
 	{
-		return 1;
+		$db			= $sl->getDb(); // // zde je vytáhne databázový objekt PDO
+		$get		= $sl->getGet();
+		
+		if (isset($get['ucebnatyp']))
+		{
+			$id = $get['ucebnatyp'];
+		
+			try
+			{
+				$db->begintransaction(); //začátek transakce
+
+				$sql = "DELETE FROM ucebna_typ WHERE ID_typ = '$id'";
+
+				$db->query($sql);
+
+				$db->commit(); //commitnutí tranaskce
+			}
+			catch (PDOException $e)
+			{
+				/**
+				 * když byla zachycena vyjímka v SQL zobrazí se chyba a konec
+				 */
+				$pdo->rollBack();
+				die($e);
+			}
+		
+		}
+		
+		header('location: ./?modul=ucebnytypy&metoda=zobraz');
 	}
 
 }

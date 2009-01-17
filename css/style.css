@@ -35,10 +35,6 @@ table th{
 	background: #dddddd;
 	text-align: center;
 	border-bottom: 1px solid blue;
-  font-weight: bold;
-  font-size: 24px;
-  height: 30px;
-
 }
 
 #obsah
@@ -149,4 +145,19 @@ hr.cleaner
 input, label, select, textarea, li  
 {  
  display: block;  
+}
+
+h1
+{
+  font-weight: bold;
+  font-size: 24px;
+  height: 30px;
+}
+
+h2
+{
+  font-weight: bold;
+  font-size: 20px;
+  height: 35px;
+
 }

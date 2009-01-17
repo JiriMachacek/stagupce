@@ -14,7 +14,7 @@ if (isset($_GET))
 else
 	$get = '';
 	
-	
+
 $main = new main($_SESSION, $post, $get);
 
 if (!isset($_SESSION['ID_uzivatel']))
@@ -40,7 +40,7 @@ else
 		$metoda = $get['metoda'];
 		$nazev = 'beta tests';
 		
-			if(!$main->modulPovolit($modul,$metoda))
+/*			if(!$main->modulPovolit($modul,$metoda))
 			{
 			
 		    $modul = 'novinky';
@@ -48,6 +48,7 @@ else
 		    $nazev = 'Novinky';  
             
       }
+*/
 	}
 	else 
 	{
