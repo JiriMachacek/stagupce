@@ -109,12 +109,8 @@ class main
 	
   
 //začátek metody modulPovolit která ověřuje orpávnění uživatele pro volání modulu
-   public function modulPovolit($modul, $metoda)
+   public function modulPovolit($modul,$metoda,$ID_uzivatel)
    {
-   
-      //předání ID uživatele ze session
-      $ID_uzivatel = $this->session['ID_uzivatel'];
-      //------------------------
       
       //nastavení počáteční hodnoty na false - v tomto případě se nám modul nezobrazí a nemusíme ke každé podmínce definovat metodu else
       $Povolit=false;
