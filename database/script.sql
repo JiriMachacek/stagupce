@@ -45,8 +45,8 @@ CREATE TABLE `hodina`
   COMMENT 'ucitel',
   `ID_predmet` Int NOT NULL,
   `ID_ucebna` Int NOT NULL,
-  `zacatek` Datetime NOT NULL,
-  `konec` Datetime NOT NULL,
+  `zacatek` Time NOT NULL,
+  `konec` Time NOT NULL,
   `den` Enum('pondeli','utery','streda','ctvrtek','patek','sobota','nedele') NOT NULL
   COMMENT 'pondeli, utery, ... nedele',
   `tyden` Enum('vsechny','lichy','sudy') NOT NULL
