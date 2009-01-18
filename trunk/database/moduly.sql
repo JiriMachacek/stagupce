@@ -36,4 +36,5 @@ INSERT INTO `page` (`ID_page`, `modul`, `typ`, `prava`, `nazev`) VALUES
 (42, 'zkousky', 'zobraz', 'vsichni', 'Výpis zkoušek'),
 (43, 'zkousky', 'uprav', 'ucitel', 'Známkování'),
 (44, 'zkousky', 'vymaz', 'ucitel', 'Mazání zkoušky'),
-(45, 'zkousky', 'vloz', 'ucitel', 'Pøidání zkoušky');
+(45, 'zkousky', 'vloz', 'ucitel', 'Pøidání zkoušky'),
+(46, 'uzivatelinfo', 'zobraz', 'vsichni', 'Informace o uživateli');
