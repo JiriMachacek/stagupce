@@ -6,19 +6,19 @@
 <table>
 	<tr>
 		<th>Název</th>
-		<th>Zkouška</th>
+		<th>Zkoušející</th>
+		<th>Učebna</th>
 		<th>Čas</th>
-		<th>Den</th>
 		<th>Volných míst</th>
 		<th>Zapsat</th>
 	</tr>
 
 	{foreach from=$rozvrh item=predmet}
 	<tr>
-		<td>{$predmet.nazev}</td>
-		<td>{$predmet.zkouska}</td>
+		<td>{$predmet.predmet_nazev}</td>
+		<td>{$predmet.zkousejici}</td>
+		<td>{$predmet.ucebna_nazev}</td>
 		<td>{$predmet.cas}</td>
-		<td>{$predmet.den}</td>
 		<td>{$predmet.kapacita}</td>
 		<td><input type="checkbox" name="predmet[]" value="{$predmet.ID_hodina}" /></td>
 	</tr> 
