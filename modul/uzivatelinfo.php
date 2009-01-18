@@ -26,17 +26,16 @@ class uzivatelinfo
 		$post		= $sl->getPost(); // zde je vytáhne obsah promìnné $_POST
 		$db			= $sl->getDb(); // // zde je vytáhne databázový objekt PDO
 		
-		
+		$id = $session['ID_uzivatel'];
 		
 		$sql = "SELECT	typ,
-						concat(jmeno, ' ',primeni) AS jmeno,
+						concat(jmeno, ' ',prijmeni) AS jmeno,
 						login
 				FROM	uzivatel
+				WHERE	ID_uzivatel = '$id'
 				";
-		
 
-		$zobraz = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC); // do promìnné result vytáhne všechny øádky DB ve formátu: 
-		
+		$zobraz = $db->query($sql)->fetch(PDO::FETCH_ASSOC); // do promìnné result vytáhne všechny øádky DB ve formátu: 
 		
 		$sl->zobraz($zobraz, 'uzivatelinfo.tpl'); // preda sablone hodnoty pole zobraz a zobrazi je v sablone ucebny.tpl
 	}

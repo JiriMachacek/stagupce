@@ -5,14 +5,17 @@
 <table>
 	<tr>
 		<th>Jméno</th>
+		<td>{$jmeno}</td>
+	</tr>
+	<tr>
 		<th>Typ</th>
-		<th>Login</th>
+		<td>{$typ}</td>
 	</tr>
 
 	
 	<tr>
-		<td>{$jmeno}  </td>
-		<td>{$typ}</td>
+		<th>Login</th>
+	
 		<td>{$login}</td>
 	</tr> 
 	

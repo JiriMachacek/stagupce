@@ -45,18 +45,18 @@ else
 			if($main->modulPovolit($modul,$metoda)!=1)
 			{
 			
-		    $modul = 'novinky';
+		    $modul = 'uzivatelinfo';
 		    $metoda = 'zobraz';
-		    $nazev = 'Novinky';  
+		    $nazev = 'úvod';  
             
       }
 
 	}
 	else 
 	{
-		$modul = 'novinky';
+		$modul = 'uzivatelinfo';
 		$metoda = 'zobraz';
-		$nazev = 'Novinky';
+		$nazev = 'úvod';
 
 	}
 }
