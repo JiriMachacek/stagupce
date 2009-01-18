@@ -6,13 +6,17 @@
 <table>
 	<tr>
 		<th>Typ</th>
+		<th>Jméno</th>
+		<th>Login</th>
 		<th>Akce</th>
 	</tr>
 
 	{foreach from=$uzivatele item=uzivatel}
 	<tr>
-		<td>{$uzivatel.typ} || {$uzivatel.jmeno} {$uzivatel.prijmeni} </td>
-		<td>edit smazat</td>
+		<td>{$uzivatel.typ}</td>
+		<td>{$uzivatel.jmeno} {$uzivatel.prijmeni} </td>
+		<td>{$uzivatel.login}</td>
+		<td><a href="./?modul=uzivatele&amp;metoda=vymaz&amp;uzivatel={$uzivatel.ID_uzivatel}">vymazat</a></td>
 	</tr> 
 	{foreachelse}
 	<tr>

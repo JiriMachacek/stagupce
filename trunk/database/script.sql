@@ -45,14 +45,13 @@ CREATE TABLE `hodina`
   `ID_hodina` Int NOT NULL AUTO_INCREMENT,
   `ID_uzivatel_vyucujici` Int NOT NULL
   COMMENT 'ucitel',
-  `ID_semestr` Int NOT NULL,
   `ID_predmet` Int NOT NULL,
   `ID_ucebna` Int NOT NULL,
   `zacatek` Datetime NOT NULL,
   `konec` Datetime NOT NULL,
-  `den` Enum('pondělí','úterý','středa','čtvrtek','pátek','sobota','neděle') NOT NULL
+  `den` Enum('pondeli','utery','streda','ctvrtek','patek','sobota','nedele') NOT NULL
   COMMENT 'pondeli, utery, ... nedele',
-  `tyden` Enum('všechny','lichý','sudý') NOT NULL
+  `tyden` Enum('vsechny','lichy','sudy') NOT NULL
   COMMENT 'vsechny, lichy, sudy',
   `kapacita` Int NOT NULL,
  PRIMARY KEY (`ID_hodina`)
@@ -77,20 +76,6 @@ CREATE TABLE `hodina_student`
 PRIMARY KEY (`ID_hodina`,`ID_uzivatel_student`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci ROW_FORMAT=COMPACT;
 
- 
-
--- Table semestr
-
-CREATE TABLE `semestr`
-(
-  `ID_semestr` Int NOT NULL AUTO_INCREMENT,
-  `zacetek` Date,
-  `konec` Date,
-  `typ` Enum('letní','zimní')
-  COMMENT 'letni, zimni',
- PRIMARY KEY (`ID_semestr`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
-
 -- Table page
 
 CREATE TABLE IF NOT EXISTS `page` (
@@ -108,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `page` (
 CREATE TABLE `uzivatel`
 (
   `ID_uzivatel` Int NOT NULL AUTO_INCREMENT,
-  `typ` Enum('student','učitel','admin') NOT NULL
+  `typ` Enum('student','ucitel','admin') NOT NULL
   COMMENT 'student, ucitel, admin',
   `jmeno` Varchar(50),
   `prijmeni` Varchar(50),
@@ -186,7 +171,7 @@ ALTER TABLE `hodina_student` ADD CONSTRAINT `student_predmet` FOREIGN KEY (`ID_h
 
 ALTER TABLE `ucebna` ADD CONSTRAINT `ucebna_typ` FOREIGN KEY (`ID_typ`) REFERENCES `ucebna_typ` (`ID_typ`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
-ALTER TABLE `hodina` ADD CONSTRAINT `semestr_hodina` FOREIGN KEY (`ID_semestr`) REFERENCES `semestr` (`ID_semestr`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
 
 ALTER TABLE `predmet` ADD CONSTRAINT `garant_predmetu` FOREIGN KEY (`ID_uzivatel_garant`) REFERENCES `uzivatel` (`ID_uzivatel`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
