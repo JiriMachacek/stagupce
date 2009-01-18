@@ -12,7 +12,7 @@ if ($_SERVER['SERVER_ADDR'] == '127.0.0.1')
 	define ('SQL_password', '');
 	define ('SQL_dbname', 'stagupce');
 
-	define('smartyDebug', 'true');
+	define('smartyDebug', true);
 
 }
 else
@@ -22,7 +22,7 @@ else
 	define ('SQL_password', '~$G,VY5k3UAs');
 	define ('SQL_dbname', 'wearewe1_stag');
 
-	define('smartyDebug', 'false');
+	define('smartyDebug', false);
 
 }
 
