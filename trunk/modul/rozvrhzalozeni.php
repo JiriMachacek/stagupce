@@ -15,19 +15,18 @@ class rozvrhzalozeni
 		$post		= $sl->getPost(); // zde je vytáhne obsah proměnné $_POST
 		$db			= $sl->getDb(); // // zde je vytáhne databázový objekt PDO
 		
-		$sql = "SELECT	p.nazev,
-						p.prednaska,
+		$sql = "SELECT	h.ID_hodina,
+						p.nazev,
 						p.pocet_kreditu,
 						p.zkouska,
-						concat(h.zacatek, ' - ', h.konec) AS cas,
+						concat(DATE_FORMAT(h.zacatek, '%H:%i'), ' - ', DATE_FORMAT(h.konec, '%H:%i')) AS cas,
 						h.den,
 						h.tyden,
-						h.kapacita,
-						p.ID_predmet
+						h.kapacita
 						
 						
 				FROM	predmet p
-				LEFT JOIN hodina h ON h.ID_predmet = p.ID_predmet";
+				JOIN hodina h ON h.ID_predmet = p.ID_predmet";
 		
 		$zobraz['rozvrh'] = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC); // do proměnné result vytáhne všechny řádky DB ve formátu: 
 		/*
@@ -53,16 +52,8 @@ class rozvrhzalozeni
 		$db			= $sl->getDb(); // // zde je vytáhne databázový objekt PDO
 		$get		= $sl->getGet();
 		
-		$input['ID_predmet'] = $zobraz['ID_predmet'] = $get['predmet'];
-		$input['ID_semestr'] = 1;
-		
-		$zobraz['zacatek'] = '';
-		$zobraz['konec'] = '';
-		$zobraz['den'] = 'nic';
-		$zobraz['ucebna'] = 'nic';
-		$zobraz['ucitel'] = 'nic';
-		$zobraz['tyden'] = 'nic';
-		$zobraz['kapacita'] = '';
+				
+		$zobraz['chybapredmet'] = false;
 		$zobraz['chybazacatek'] = false;
 		$zobraz['chybakonec'] = false;
 		$zobraz['chybaden'] = false;
@@ -75,31 +66,56 @@ class rozvrhzalozeni
 		if(empty($post))
 		{
 			$formular = true;
+			$zobraz['zacatek'] = '';
+			$zobraz['konec'] = '';
+			$zobraz['kapacita'] = '';
+			$zobraz['den'] = 'nic';
+			$zobraz['ucebna'] = 'nic';
+			$zobraz['ucitel'] = 'nic';
+			$zobraz['tyden'] = 'nic';
+			$zobraz['predmet'] = 'nic';
 		}
 		else
 		{
 			$formular = false;
 			
-			$zobraz = array_merge($zobraz, $post); // predani post na zobraz;
-			
-			if (ereg('[0-9]{1,2}:[0-9]{2}',$zobraz['zacatek']))
+			$zobraz['zacatek'] = $post['zacatek'];
+			$zobraz['konec'] = $post['konec'];
+			$zobraz['kapacita'] = $post['kapacita'];
+			$zobraz['den'] = $post['den'];
+			$zobraz['ucebna'] = $post['ucebna'];
+			$zobraz['ucitel'] = $post['ucitel'];
+			$zobraz['tyden'] = $post['tyden'];
+			$zobraz['predmet'] = $post['predmet'];
+
+			if ($zobraz['predmet'] == 'nic')
 			{
-				$input['zacatek'] = $zobraz['zacatek'];
+				$formular = true;
+				$zobraz['chybapredmet'] = true;
 			}
 			else
+			{
+				$input['ID_predmet'] = $zobraz['predmet'];
+			}
+			
+			if ($zobraz['zacatek'] == 'nic')
 			{
 				$formular = true;
 				$zobraz['chybazacatek'] = true;
 			}
-
-			if (ereg('[0-9]{1,2}:[0-9]{2}',$zobraz['konec']))
-			{
-				$input['konec'] = $zobraz['konec'];
-			}
 			else
+			{
+				$input['zacatek'] = $zobraz['zacatek'] . ':00:00';
+			}
+
+			if ($zobraz['konec'] == 'nic')
 			{
 				$formular = true;
 				$zobraz['chybakonec'] = true;
+			}
+			else
+			{
+				$input['konec'] = $zobraz['konec'] . ':00:00';
 			}
 			
 			if (is_numeric($zobraz['den']))
@@ -107,25 +123,25 @@ class rozvrhzalozeni
 				switch($zobraz['den'])
 				{
 					case 0:
-						$input['den'] = 'pondělí';
+						$input['den'] = 'pondeli';
 					break;
 					case 1:
-						$input['den'] = 'úterý';
+						$input['den'] = 'utery';
 					break;
 					case 2:
-						$input['den'] = 'středa';
+						$input['den'] = 'streda';
 					break;
 					case 3:
-						$input['den'] = 'čtvrtek';
+						$input['den'] = 'ctvrtek';
 					break;
 					case 4:
-						$input['den'] = 'pátek';
+						$input['den'] = 'patek';
 					break;
 					case 5:
 						$input['den'] = 'sobota';
 					break;
 					case 6:
-						$input['den'] = 'neděle';
+						$input['den'] = 'nedele';
 					break;
 				}
 			}
@@ -191,17 +207,14 @@ class rozvrhzalozeni
 		
 		if ($formular)
 		{
-			$sql = "SELECT nazev FROM predmet WHERE ID_predmet = '$input[ID_predmet]'";
-			$result = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
+			$zobraz['dny'] = array('nic' => '---', 0 => 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota', 'neděle');
+			$zobraz['tydny'] = array('nic' => '---', 0 => 'všechny', 'lichý', 'sudý');
+			$zobraz['hodiny'] = array('nic' => '---', 0 => '00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23');
 			
-			$zobraz['predmet'] = $result['nazev'];
-			$zobraz['dny'] = array('nic' => '-', 0 => 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota', 'neděle');
-			$zobraz['tydny'] = array('nic' => '-', 0 => 'všechny', 'lichý', 'sudý');
-			
-			$sql = "SELECT concat(jmeno, ' ',prijmeni) AS vyucujici, ID_uzivatel FROM uzivatel WHERE typ='učitel'";
+			$sql = "SELECT concat(jmeno, ' ',prijmeni) AS vyucujici, ID_uzivatel FROM uzivatel WHERE typ='ucitel'";
 
 			$result = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-			$zobraz['vyucujici']['nic'] = '-';
+			$zobraz['vyucujici']['nic'] = '---';
 			foreach($result as $typ) // převede na pole vhodné pro zobrazení....
 			{
 				$key = $typ['ID_uzivatel'];
@@ -210,13 +223,22 @@ class rozvrhzalozeni
 			
 			$sql = "SELECT concat(ut.typ, ' - ', u.nazev, ' - ', u.kapacita) AS ucebna, ID_ucebna FROM ucebna u JOIN ucebna_typ ut ON u.ID_typ = ut.ID_typ";
 			$result = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-			$zobraz['ucebny']['nic'] = '-';
+			$zobraz['ucebny']['nic'] = '---';
 			foreach($result as $typ) // převede na pole vhodné pro zobrazení....
 			{
 				$key = $typ['ID_ucebna'];
 				$zobraz['ucebny'][$key] = $typ['ucebna'];
 			}
 					
+			$sql = "SELECT ID_predmet, nazev FROM predmet";
+			$result = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+			$zobraz['predmety']['nic'] = '---';
+			foreach($result as $typ) // převede na pole vhodné pro zobrazení....
+			{
+				$key = $typ['ID_predmet'];
+				$zobraz['predmety'][$key] = $typ['nazev'];
+			}
+			
 			$sl->zobraz($zobraz, 'rozvrh-zalozeni-formular.tpl');
 		}
 		else
@@ -248,7 +270,35 @@ class rozvrhzalozeni
 	
 	public function vymaz($sl)
 	{
-		return 1;
+		$db			= $sl->getDb(); // // zde je vytáhne databázový objekt PDO
+		$get		= $sl->getGet();
+		
+		if (isset($get['hodina']))
+		{
+			$id = $get['hodina'];
+		
+			try
+			{
+				$db->begintransaction(); //začátek transakce
+
+				$sql = "DELETE FROM hodina WHERE ID_hodina = '$id'";
+
+				$db->query($sql);
+
+				$db->commit(); //commitnutí tranaskce
+			}
+			catch (PDOException $e)
+			{
+				/**
+				 * když byla zachycena vyjímka v SQL zobrazí se chyba a konec
+				 */
+				$pdo->rollBack();
+				die($e);
+			}
+		
+		}
+		
+		header('location: ./?modul=rozvrhzalozeni&metoda=zobraz');
 	}
 
 }
