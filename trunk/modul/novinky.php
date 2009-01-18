@@ -20,7 +20,9 @@ class novinky
 				JOIN	uzivatel u ON n.ID_uzivatel = u.ID_uzivatel";
 		
 		$zobraz['novinky'] = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-		
+		echo '<pre>';
+    print_r($zobraz['novinky']);
+    echo '</pre>';
 		$sl->zobraz($zobraz, 'novinky.tpl');
 		
 		

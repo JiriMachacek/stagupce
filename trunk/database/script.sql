@@ -30,8 +30,6 @@ CREATE TABLE `predmet`
   `ID_predmet` Int NOT NULL AUTO_INCREMENT,
   `ID_uzivatel_garant` Int NOT NULL,
   `nazev` Varchar(50) NOT NULL,
-  `prednaska` Enum('ne','ano') NOT NULL
-  COMMENT 'ano, ne',
   `pocet_kreditu` Int NOT NULL,
   `zkouska` Enum('ne','ano') NOT NULL
   COMMENT 'ano, ne',
