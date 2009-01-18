@@ -156,13 +156,13 @@ class rozvrhzalozeni
 				switch ($zobraz['tyden'])
 				{
 					case 0:
-						$input['tyden'] = 'všechny';
+						$input['tyden'] = 'vsechny';
 					break;
 					case 1:
-						$input['tyden'] = 'lichý';
+						$input['tyden'] = 'lichy';
 					break;
 					case 2:
-						$input['tyden'] = 'sudý';
+						$input['tyden'] = 'sudy';
 					break;
 				}
 				 
