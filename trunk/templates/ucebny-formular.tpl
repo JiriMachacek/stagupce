@@ -6,16 +6,19 @@
    
    <label for="nazev">Název</label>
    <input type="text" name="nazev" id="nazev" size="40" value="{$nazev}" />
-   {if $nazevchyba}Chyba! nebyl vyplněn název učebny{/if}{if $nazevchybaexistuje}Chyba! Tento název už existuje...{/if}
+   
+   {if $nazevchyba}<span>Chyba! nebyl vyplněn název učebny</span>{/if}{if $nazevchybaexistuje}<span>Chyba! Tento název už existuje...</span>{/if}
    
 	<label for="typ">Typ</label>
 	{html_options name=typ options=$typy selected=$typ}
-	{if $typchyba}Chyba! nebyl vybrán typ učebny{/if}
+	
+	{if $typchyba}<span>Chyba! nebyl vybrán typ učebny</span>{/if}
    
    <label for="kapacita">Kapacita</label>
    <input type="text" name="kapacita" id="kapacita" size="40" value="{$kapacita}" />
-   {if $kapacitachyba}Chyba! nebyla vyplněna kapacita učebny nebo byla vyplněna špatně...{/if}
-
+   
+   {if $kapacitachyba}<span>Chyba! nebyla vyplněna kapacita učebny nebo byla vyplněna špatně...</span>{/if}
+   
    
    <input type="submit" name="ok" value="Vlož">
    

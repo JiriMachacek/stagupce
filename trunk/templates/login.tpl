@@ -8,7 +8,7 @@
 		<input type="submit" />
 	</form>
 	{if $chyba}
-		Špatné heslo nebo jméno
+		<span>Špatné heslo nebo jméno</span>
 	{/if}
 </div>
 </div>
