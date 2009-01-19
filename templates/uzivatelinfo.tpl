@@ -1,20 +1,20 @@
 {include file="hlavicka-menu.tpl"}
 <div id="hlavnipanel">
 <div id="hlavnipanel-obsah">
-
-<table>
+<h2>Informace o uživateli</h2>
+<table id="uzivatel">
 	<tr>
-		<th>Jméno</th>
+		<th>Jméno:</th>
 		<td>{$jmeno}</td>
 	</tr>
 	<tr>
-		<th>Typ</th>
+		<th>Typ:</th>
 		<td>{$typ}</td>
 	</tr>
 
 	
 	<tr>
-		<th>Login</th>
+		<th>Login:</th>
 	
 		<td>{$login}</td>
 	</tr> 
