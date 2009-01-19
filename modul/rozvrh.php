@@ -23,7 +23,7 @@ class rozvrh
 						h.tyden
 						
 				FROM	hodina_student hs
-				LEFT JOIN hodina h ON h.ID_hodina = hs.ID_hodina
+				JOIN hodina h ON h.ID_hodina = hs.ID_hodina
 				JOIN predmet p ON h.ID_predmet = p.ID_predmet
 				JOIN ucebna u ON u.ID_ucebna = h.ID_ucebna
 				WHERE hs.ID_uzivatel_student = '$session[ID_uzivatel]'

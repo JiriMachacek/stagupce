@@ -3,39 +3,40 @@
 <div id="levypanel">
 <div id="levypanel-obsah">
 <div id="menu">  
-	
+    <ul>
   {if $private_uzivatel_typ == 'admin'}
   <!-- uživatel admin -->
-  Admin
-    <a href="./?modul=ucebny&amp;metoda=zobraz">Ucebny</a>
-	<a href="./?modul=materialy&amp;metoda=zobraz">Materiály</a>
-	<a href="./?modul=materialy&amp;metoda=vloz">Materiály novy</a>
-	<a href="./?modul=uzivatele&amp;metoda=zobraz">Uživatelé</a>
-	<a href="./?modul=rozvrhzalozeni&amp;metoda=zobraz">Založení rozvrhu</a>
-	<a href="./?modul=rozvrhprihlaseni&amp;metoda=zobraz">Přihlášení předmětu</a>
-	<a href="./?modul=predmet&amp;metoda=zobraz">Předměty</a>
-	<a href="./?odhlaseni=1">Odhlášení</a>
+	<li><a href="./?modul=ucebny&amp;metoda=zobraz">Učebny</a></li>
+		<ul>
+			<li><a href="./?modul=ucebnytypy&amp;metoda=zobraz">Typy učeben</a></li>
+			</ul>
+	<li><a href="./?modul=materialy&amp;metoda=zobraz">Materiály</a></li>
+	<ul>
+		<li><a href="./?modul=materialy&amp;metoda=vloz">Materiály novy</a></li>
+	</ul>
+	<li><a href="./?modul=uzivatele&amp;metoda=zobraz">Uživatelé</a></li>
+	<li><a href="./?modul=rozvrhzalozeni&amp;metoda=zobraz">Založení rozvrhu</a></li>
+	<li><a href="./?modul=rozvrhprihlaseni&amp;metoda=zobraz">Přihlášení předmětu</a></li>
+	<li><a href="./?modul=predmet&amp;metoda=zobraz">Předměty</a></li>
+	<li><a href="./?odhlaseni=1">Odhlášení</a>
+	</ul>
   {elseif $private_uzivatel_typ == 'učitel'}
   <!-- uživatel učitel -->
-  Učitel
-    <a href="./?modul=ucebny&amp;metoda=zobraz">Ucebny</a>
-	<a href="./?modul=materialy&amp;metoda=zobraz">Materiály</a>
-	<a href="./?modul=materialy&amp;metoda=vloz">Materiály novy</a>
-	<a href="./?modul=uzivatele&amp;metoda=zobraz">Uživatelé</a>
-	<a href="./?modul=rozvrhzalozeni&amp;metoda=zobraz">Založení rozvrhu</a>
-	<a href="./?modul=predmet&amp;metoda=zobraz">Předměty</a>
-	<a href="./?odhlaseni=1">Odhlášení</a>
+    <li><a href="./?modul=ucebny&amp;metoda=zobraz">Ucebny</a></li>
+	<li><a href="./?modul=materialy&amp;metoda=zobraz">Materiály</a></li>
+	<li><a href="./?modul=materialy&amp;metoda=vloz">Materiály novy</a></li>
+	<li><a href="./?modul=uzivatele&amp;metoda=zobraz">Uživatelé</a></li>
+	<li><a href="./?modul=rozvrhzalozeni&amp;metoda=zobraz">Založení rozvrhu</a></li>
+	<li><a href="./?modul=predmet&amp;metoda=zobraz">Předměty</a></li>
+	<li><a href="./?odhlaseni=1">Odhlášení</a></li>
   {elseif $private_uzivatel_typ == 'student'}
   <!-- uživatel student -->
   Student
-    <a href="./?modul=ucebny&amp;metoda=zobraz">Ucebny</a>
-	<a href="./?modul=materialy&amp;metoda=zobraz">Materiály</a>
-	<a href="./?modul=uzivatele&amp;metoda=zobraz">Uživatelé</a>
-	<a href="./?modul=rozvrhprihlaseni&amp;metoda=zobraz">Přihlášení předmětu</a>
-	<a href="./?modul=predmet&amp;metoda=zobraz">Předměty</a>
-	<a href="./?odhlaseni=1">Odhlášení</a>
+	<li><a href="./?modul=materialy&amp;metoda=zobraz">Materiály</a></li>
+	<li><a href="./?modul=rozvrhprihlaseni&amp;metoda=zobraz">Přihlášení předmětu</a></li>
+	<li><a href="./?modul=rozvrh&amp;metoda=zobraz">Rozvrh</a></li>
+	<li><a href="./?odhlaseni=1">Odhlášení</a></li>
   {/if}
-
 </div>
 </div>
 </div>
