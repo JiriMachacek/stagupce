@@ -73,7 +73,7 @@ class uzivatele
 				 */
 				
 				$sql = "SELECT login FROM uzivatel WHERE login = '$zobraz[login]'";
-				echo $sql;
+
 				$result = $db->query($sql)->fetch();
 				if($result)
 				{

@@ -15,7 +15,6 @@ class materialy
 						CONCAT(u.jmeno, ' ', u.prijmeni) AS jmeno,
 						m.popis,
 						m.nazev,
-						m.pristupne,
 						m.upload,
 						m.velikost,
 						m.soubor
@@ -41,13 +40,13 @@ class materialy
 	
 		$zobraz['nazevchyba'] = false;
 		$zobraz['souborchyba'] = false;
-		$zobraz['nazev'] = '';
-		$zobraz['soubor'] = '';
-		$zobraz['popis'] = '';
-		$zobraz['pristupnost'] = '';
 		
 		if(empty($post))
 		{
+			$zobraz['nazev'] = '';
+			$zobraz['soubor'] = '';
+			$zobraz['popis'] = '';
+
 			$formular = true;
 		}
 		else
@@ -55,7 +54,6 @@ class materialy
 			$formular = false;
 			$zobraz['nazev'] = $post['nazev'];
 			$zobraz['popis'] = $post['popis'];
-			$zobraz['pristupnost'] = $post['pristupnost'];
 			
 			
 
@@ -102,10 +100,6 @@ class materialy
 				$input['nazev'] = $post['nazev'];
 			}
 			
-			if ($post['pristupnost'] <> '')
-			{
-				$input['pristupnost'] = $post['pristupnost'];
-			}
 			
 			if ($post['popis'] <> '')
 			{
@@ -116,10 +110,29 @@ class materialy
 		
 		if ($formular)
 		{
-			$sql = "SELECT neco from neco";
+			$sql = "SELECT ID_predmet, nazev FROM predmet p ";
 			/*
 			 * @todo předměty
 			 */
+			if($session['typ'] = 'ucitel')
+			{
+				$ucitel_id = $session['ID_uzivatel'];
+				$sql .= "JOIN hodina h ON p.ID_predmet = h.ID_predmet
+						 WHERE ID_uzivatel_vyucujici = '$ucitel_id'";
+			}
+print_r($session);
+echo $sql;
+
+			$result = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+			$zobraz['predmety']['nic'] = '---';
+			if ($result)
+			{			
+				foreach($result as $typ) // převede na pole vhodné pro zobrazení....
+				{
+					$key = $typ['ID_predmet'];
+					$zobraz['predmety'][$key] = $typ['nazev'];
+				}
+			}
 			
 			
 			$sl->zobraz($zobraz, 'materialy-formular.tpl');
