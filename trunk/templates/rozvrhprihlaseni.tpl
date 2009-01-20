@@ -34,7 +34,7 @@
 	</tr> 
 	{foreachelse}
 	<tr>
-		<td colspan="9">Nejsou žádné zkoušky</td>
+		<td colspan="7">Nejsou žádné zkoušky</td>
 	</tr>
 	{/foreach}
 

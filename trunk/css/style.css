@@ -149,6 +149,16 @@ hr.cleaner
 
 }
 
+.odsad{
+  padding-left: 2 em;
+
+}
+
+ul {
+  margin: 0; 
+  padding: 0;
+}
+
 li{
  list-style-type: none;
 }

@@ -28,7 +28,7 @@
 	</tr> 
 	{foreachelse}
 	<tr>
-		<td colspan="9">Nejsou žádné předměty k rozvrhu</td>
+		<td colspan="8">Nejsou žádné předměty k rozvrhu</td>
 	</tr>
 	{/foreach}
 
