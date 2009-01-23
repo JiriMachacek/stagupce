@@ -1,6 +1,25 @@
 =*STAG*=
 =základní studijní agenda=
 ===_(uživatelská příručka)_===
-
-
+<br>
+<br>
+<br>
+------------------------------------------------------------------------------------------
 =*Slovo úvodem:*= 
+<p><dd>Program STAG je jedinečnou novinkou na softwarovém trhu. Tento snadno ovladatelný program je lehce implementovatelný nejen do spousty školních institucí, ale po menších úpravách i do ostatních systémů, které vyžadují přesná, předem stanovená pravidla s možnostmi rychlé změny a hlavně disponující velkou stabilitou!
+<br>Co vše STAG umí? To se dočtete v příštích několika stránkách, vše Vám postupně vysvětlíme a názorně ukážeme.
+<br>Děkujeme Vám za zakoupení tohoto programu a doufáme, že s ním budete spokojeni! V případě nejasností nás ihned kontaktujte na naše kontaktní údaje:
+<p>
+<li>http://code.google.com/p/stagupce/
+<p>
+Zde, kromě odpovědí na Vaše dotazy, jsou také k vidění databáze verzí a pokroků v nich udělaných, pro nové možnosti našeho programu.
+<dt>
+<p>
+------------------------------------------------------------------------------------------
+=*Začínáme:*=
+<p><dd>Jelikož je program dělán v programovacím jazyku php, stačí Vám k jeho spuštění webový prohlížeč (Internet explorer, Mozilla FireFox, Opera) a připojení k internetové síti.  Pokud ovšem pracujete v localhost prostředí, není to hlavní požadavek.
+<p>Pro defaultní nastavení je program uložen na adrese:
+<li>http://stag.hypnoticart.net/
+<p>(kde jej můžete za určitý poplatek také provozovat)
+
+=UPLOAD=
