@@ -19,7 +19,7 @@ Zde, kromě odpovědí na Vaše dotazy, jsou také k vidění databáze verzí a
 =*Začínáme:*=
 <p><dd>Jelikož je program dělán v programovacím jazyku php, stačí Vám k jeho spuštění webový prohlížeč (Internet explorer, Mozilla FireFox, Opera) a připojení k internetové síti.  Pokud ovšem pracujete v localhost prostředí, není to hlavní požadavek.
 <p>Pro defaultní nastavení je program uložen na adrese:
+<br>(kde jej můžete za určitý poplatek také provozovat)
 <li>http://stag.hypnoticart.net/
-<p>(kde jej můžete za určitý poplatek také provozovat)
-
-=UPLOAD=
+<p>Po kliknutí Vás uvítá úvodní stránka s přihlašovacími údaji.
+<p><img src="D:\Documents and Settings\Foxik\Dokumenty\Obrázky\Stag\Uvod_jpg.jpg">
