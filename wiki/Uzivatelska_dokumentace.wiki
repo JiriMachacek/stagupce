@@ -22,4 +22,4 @@ Zde, kromě odpovědí na Vaše dotazy, jsou také k vidění databáze verzí a
 <br>(kde jej můžete za určitý poplatek také provozovat)
 <li>http://stag.hypnoticart.net/
 <p>Po kliknutí Vás uvítá úvodní stránka s přihlašovacími údaji.
-<p><img src="D:\Documents and Settings\Foxik\Dokumenty\Obrázky\Stag\Uvod_jpg.jpg">
+<p><img src="D:\Documents and Settings\Foxik\Dokumenty\Obrázky\Stag\Uvod_jpg.jpg" alt="UVOD" border="1px" width="700" height="700">
