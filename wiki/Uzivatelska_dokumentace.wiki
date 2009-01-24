@@ -22,7 +22,7 @@ Zde, kromě odpovědí na Vaše dotazy, jsou také k vidění databáze verzí a
 <br>(kde jej můžete za určitý poplatek také provozovat)
 <li>http://stag.hypnoticart.net/
 <p>Po kliknutí Vás uvítá úvodní stránka s přihlašovacími údaji.
-<p><li>http://picasaweb.google.cz/lh/photo/Lv2ExP0_P8JCZK2EG8FTvQ?authkey=WJwXwYiAJOU&feat=directlink
+<p><li><img src="http://picasaweb.google.cz/lh/photo/Lv2ExP0_P8JCZK2EG8FTvQ?authkey=WJwXwYiAJOU&feat=directlink">
 <p>V tuto chvíli si můžete vybrat s našich defaultně vytvořených uživatelských údajů s předem danými pravomocemi pro práci našeho programu.
 <p>http://picasaweb.google.cz/lh/photo/g7aJyUFq1OlKsqYhXlVEEg?authkey=WJwXwYiAJOU&feat=directlink
 <p>Heslo: heslo
@@ -111,6 +111,4 @@ Zde, kromě odpovědí na Vaše dotazy, jsou také k vidění databáze verzí a
 <br>Tým programátorů
 <br>FoxXx_company s.r.o.
 <br>©2009
-
-
 
