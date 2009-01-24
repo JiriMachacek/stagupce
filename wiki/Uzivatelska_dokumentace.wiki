@@ -24,13 +24,14 @@ Zde, kromě odpovědí na Vaše dotazy, jsou také k vidění databáze verzí a
 <p>Po kliknutí Vás uvítá úvodní stránka s přihlašovacími údaji.
 <p><li>http://picasaweb.google.cz/lh/photo/Lv2ExP0_P8JCZK2EG8FTvQ?authkey=WJwXwYiAJOU&feat=directlink
 <p>V tuto chvíli si můžete vybrat s našich defaultně vytvořených uživatelských údajů s předem danými pravomocemi pro práci našeho programu.
+<p>http://picasaweb.google.cz/lh/photo/g7aJyUFq1OlKsqYhXlVEEg?authkey=WJwXwYiAJOU&feat=directlink
 <p>Heslo: heslo
 <dt>
 ------------------------------------------------------------------------------------------
 =*Práce administrátora (Typ Admin):*=
 <p><dd>Po zadání daného profilu (Typ Admin) se před Vámi objeví následující stránka: 
-<img src="" alt="admin" border="1px" width="700" height="350">
-<br>Nyní se pohybuje v programu s největšími možnými právy uživatele. Projdeme si jednotlivé body a jejich nastaveni v levém sloupci stránky.
+<li><p>http://picasaweb.google.cz/lh/photo/b8lsZBzM2lpYaFWw_pS9uQ?authkey=WJwXwYiAJOU&feat=directlink
+<p>Nyní se pohybuje v programu s největšími možnými právy uživatele. Projdeme si jednotlivé body a jejich nastaveni v levém sloupci stránky.
 <dt>
 == <u>1. Učebny: ==
 <p><dd>Po kliknutí na tento odkaz se Vám v pravé časti formuláře objevý nabídka. Zde můžete vidět již vytvořené učebny, nebo je vytvářet. Důležité je při zadávání nových učeben mít již vytvořeny typ učebny. Tento typ, můžeme spravovat přes typ učeben přímo v hlavním levém menu, nebo pod příkazem učebny.
@@ -39,6 +40,7 @@ Zde, kromě odpovědí na Vaše dotazy, jsou také k vidění databáze verzí a
 <li> Typ (předem definovaný)
 <li> Kapacita
 <p>Po vložení se před Vámi vypíše vaše nově vytvořená učebna, kterou můžete jedním kliknutím opět odstranit.
+<p><li>http://picasaweb.google.cz/lh/photo/TKpe0jtUarXY6GDrkOI9Aw?authkey=WJwXwYiAJOU&feat=directlink
 <dt>
 
 == <u>2. Materiály: ==
@@ -63,6 +65,7 @@ Zde, kromě odpovědí na Vaše dotazy, jsou také k vidění databáze verzí a
 <li>Jméno 
 <li>Příjmení
 <p>Výsledek správného nastavení:
+<p><li>http://picasaweb.google.cz/lh/photo/QEd4hCGoUGQxRGCvvc4juQ?authkey=WJwXwYiAJOU&feat=directlink
 <dt>
 
 == <u>4. založení rozvrhu: ==
@@ -76,6 +79,7 @@ Zde, kromě odpovědí na Vaše dotazy, jsou také k vidění databáze verzí a
 <li>Vyučující (již nadefinovaný v menu Uživatele s typem učitel)
 <li>Kapacita
 <p>Výsledek správného nastavení:
+<p><li>http://picasaweb.google.cz/lh/photo/QaxkRr4jZJl3uZr-ePxQTg?authkey=WJwXwYiAJOU&feat=directlink
 <dt>
 
 == <u>5. Přihlášení předmětu: ==
@@ -91,6 +95,7 @@ Zde, kromě odpovědí na Vaše dotazy, jsou také k vidění databáze verzí a
 <li>Počet kreditů
 
 <p>Po vložení se před Vámi vypíše váš nově vytvořený předmět, který můžete jedním kliknutím opět odstranit.
+<p><li>http://picasaweb.google.cz/lh/photo/DZMy1Yo7iirtr-l_HVEW6g?authkey=WJwXwYiAJOU&feat=directlink
 <dt>
 
 == <u>7. Odhlášení: ==
@@ -101,13 +106,11 @@ Zde, kromě odpovědí na Vaše dotazy, jsou také k vidění databáze verzí a
 <p><dd>Po zadání daného profilu (Typ ucitel, student) se před Vámi objeví stránka podobná a funkčně totožná s typem admin. Rozdíl lze však vidět na první pohled. Práva všech 3 typu se značně liší avšak jak již bylo řečeno styl ovládáni je totožný.
 
 <p>Zde na ukázku menu s typem student:
-
+<p><li>http://picasaweb.google.cz/lh/photo/DXu3eurhV-FaZhPBl14v6A?authkey=WJwXwYiAJOU&feat=directlink
 
 <br>Tým programátorů
 <br>FoxXx_company s.r.o.
 <br>©2009
-
-
 
 
 
