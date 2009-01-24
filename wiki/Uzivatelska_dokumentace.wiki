@@ -22,4 +22,94 @@ Zde, kromě odpovědí na Vaše dotazy, jsou také k vidění databáze verzí a
 <br>(kde jej můžete za určitý poplatek také provozovat)
 <li>http://stag.hypnoticart.net/
 <p>Po kliknutí Vás uvítá úvodní stránka s přihlašovacími údaji.
-<p><img src="D:\Documents and Settings\Foxik\Dokumenty\Obrázky\Stag\Uvod_jpg.jpg" alt="UVOD" border="1px" width="700" height="700">
+<p><img src="D:\Documents and Settings\Foxik\Dokumenty\Obrázky\Stag\Uvod_jpg.jpg" alt="UVOD" border="1px" width="700" height="350">
+<p>V tuto chvíli si můžete vybrat s našich defaultně vytvořených uživatelských údajů s předem danými pravomocemi pro práci našeho programu.
+<p>Heslo: heslo
+<dt>
+------------------------------------------------------------------------------------------
+=*Práce administrátora (Typ Admin):*=
+<p><dd>Po zadání daného profilu (Typ Admin) se před Vámi objeví následující stránka: 
+<img src="" alt="admin" border="1px" width="700" height="350">
+<br>Nyní se pohybuje v programu s největšími možnými právy uživatele. Projdeme si jednotlivé body a jejich nastaveni v levém sloupci stránky.
+<dt>
+== <u>1. Učebny: ==
+<p><dd>Po kliknutí na tento odkaz se Vám v pravé časti formuláře objevý nabídka. Zde můžete vidět již vytvořené učebny, nebo je vytvářet. Důležité je při zadávání nových učeben mít již vytvořeny typ učebny. Tento typ, můžeme spravovat přes typ učeben přímo v hlavním levém menu, nebo pod příkazem učebny.
+<p>*Nová učebna obsahuje:*
+<li> Název
+<li> Typ (předem definovaný)
+<li> Kapacita
+<p>Po vložení se před Vámi vypíše vaše nově vytvořená učebna, kterou můžete jedním kliknutím opět odstranit.
+<dt>
+
+== <u>2. Materiály: ==
+<p><dd>*Po kliknutí na tento odkaz se Vám v pravé časti formuláře objevý tabulka, která obsahuje materiály s následujícími okny:*
+<p>
+<li>Vložil
+<li>Předmět
+<li>Název
+<li>Popis
+<li>Vloženo
+<li>Velikost
+<li>Přístupnost
+<p>Vše opět můžete zadávat při výběru nového materiálu, kde všechny tyto atributy nastavujete.
+<dt>
+
+== <u>3. Uživatelé: ==
+<p><dd>Po kliknutí na tento odkaz se Vám v pravé časti formuláře objevý nabídka. Zde můžete vidět v tabulce již vytvořené uživatele s jejich 3 hlavními typy, které se udávají hlavní práva uživatele, nebo je vytvářet.
+<p>*Nový uživatel obsahuje:*
+<li>Login
+<li>Heslo
+<li>Typ – admin, učitel, student
+<li>Jméno 
+<li>Příjmení
+<p>Výsledek správného nastavení:
+<dt>
+
+== <u>4. založení rozvrhu: ==
+<p><dd>Po kliknutí na tento odkaz se Vám v pravé časti formuláře objevý nabídka. Zde můžete vidět v tabulce již vytvořené a narozvrhované předměty, které ovšem musíte první vytvořit v nastavení předmětu(viz.další kapitola).<p>*Dále pak můžete vytvořit nový předmět na rozvrh s těmito atributy:*
+<li>Předmět (již nadefinovaný v menu PŘEDMĚT)
+<li>Začátek (začátek výuky se zobrazí jako časový údaj)
+<li>Konec (konec výuky se zobrazí jako časový údaj)
+<li>Den (nabídka se dny pracovního týdne)
+<li>Týden – lichý,sudý,všechny
+<li>Učebna (již nadefinovaný v menu UČEBNA)
+<li>Vyučující (již nadefinovaný v menu Uživatele s typem učitel)
+<li>Kapacita
+<p>Výsledek správného nastavení:
+<dt>
+
+== <u>5. Přihlášení předmětu: ==
+<p><dd>Lze vidět u nastaveni v typu admin, ovšem jeho využití je děláno pro typ student, kde si studenti přihlašují Vámi vytvořené předměty do tabulky s podobnými atributy u založení předmětu.
+<p>
+<dt>
+
+== <u>6. Předměty: ==
+<p><dd>Po kliknutí na tento odkaz se Vám v pravé časti formuláře objevý nabídka. Zde můžete vidět v tabulce již vytvořené předměty, nebo můžete vytvořit nový předmět na rozvrh s těmito atributy:
+<p><li>Název
+<li>Garant – typ učitel
+<li>Zkouška –ano, ne
+<li>Počet kreditů
+
+<p>Po vložení se před Vámi vypíše váš nově vytvořený předmět, který můžete jedním kliknutím opět odstranit.
+<dt>
+
+== <u>7. Odhlášení: ==
+<p><dd>Po kliknutí na tento odkaz se program ukončí, všechny Vaše změny jsou uloženy a Vy se opět dostáváte na úvodní stránku s přihlašovacími údaji.
+<dt>
+------------------------------------------------------------------------------------------
+=*Práce učitele (Typ ucitel) a studenta (Typ student)*=
+<p><dd>Po zadání daného profilu (Typ ucitel, student) se před Vámi objeví stránka podobná a funkčně totožná s typem admin. Rozdíl lze však vidět na první pohled. Práva všech 3 typu se značně liší avšak jak již bylo řečeno styl ovládáni je totožný.
+
+<p>Zde na ukázku menu s typem student:
+
+
+<br>Tým programátorů
+<br>FoxXx_company s.r.o.
+<br>©2009
+
+
+
+
+
+
+
