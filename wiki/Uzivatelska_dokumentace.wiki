@@ -106,8 +106,8 @@ Zde, kromě odpovědí na Vaše dotazy, jsou také k vidění databáze verzí a
 <p><dd>Po zadání daného profilu (Typ ucitel, student) se před Vámi objeví stránka podobná a funkčně totožná s typem admin. Rozdíl lze však vidět na první pohled. Práva všech 3 typu se značně liší avšak jak již bylo řečeno styl ovládáni je totožný.
 
 <p>Zde na ukázku menu s typem student:
-<p><img src="http://picasaweb.google.cz/lh/photo/DXu3eurhV-FaZhPBl14v6A?authkey=WJwXwYiAJOU&feat=directlink">
+<p><img src="http://lh5.ggpht.com/_7HX4ZMM2Q7w/SXs1uFctE2I/AAAAAAAAACk/7ZMahBhc17I/student_jpg.jpg">
 
 <br>Tým programátorů
-<br>FoxXx_company s.r.o.
+<br>FoxXx_company_s.r.o.
 <br>©2009
