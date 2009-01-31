@@ -1,7 +1,7 @@
 <?php
 
 /**
- * tøída login slouží k pøihlašování uživatelù
+ * tÅ™Ã­da login slouÅ¾Ã­ k pÅ™ihlaÅ¡ovÃ¡nÃ­ uÅ¾ivatelÅ¯
  * @version 1.0
  */
 class login
@@ -11,7 +11,7 @@ class login
 	}
 	
 	/**
-	 * zobrazní pøilašovací formuláø
+	 * zobraznÃ­ pÅ™ilaÅ¡ovacÃ­ formulÃ¡Å™
 	 *
 	 * @param object $sl main
 	 * @return void
@@ -64,7 +64,7 @@ class login
 	}
 
 	/**
-	 * nepoužívá se, "aplikaèní jádro" vyžaduje
+	 * nepouÅ¾Ã­vÃ¡ se, "aplikaÄnÃ­ jÃ¡dro" vyÅ¾aduje
 	 *
 	 * @param object $sl main
 	 * @return bool true
@@ -75,7 +75,7 @@ class login
 	}
 
 	/**
-	 * nepoužívá se, "aplikaèní jádro" vyžaduje
+	 * nepouÅ¾Ã­vÃ¡ se, "aplikaÄnÃ­ jÃ¡dro" vyÅ¾aduje
 	 *
 	 * @param object $sl main
 	 * @return bool true
@@ -86,7 +86,7 @@ class login
 	}
 
 	/**
-	 * nepoužívá se, "aplikaèní jádro" vyžaduje
+	 * nepouÅ¾Ã­vÃ¡ se, "aplikaÄnÃ­ jÃ¡dro" vyÅ¾aduje
 	 *
 	 * @param object $sl main
 	 * @return bool true

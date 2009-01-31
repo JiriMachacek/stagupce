@@ -1,27 +1,27 @@
 <?php
 
 /**
- * modul spravující zkoušky
+ * modul spravujÃ­cÃ­ zkouÅ¡ky
  * 
  * @version 0.3
  */
 class zkousky
 {
-   //definice atriutù
+   //definice atriutÅ¯
    private $ID_uzivatel;
    //------------------------
 
-//zaèátek metody __construct
-   public function __construct($ID_uzivatel)  //metoda která definuje atributy
+//zaÄÃ¡tek metody __construct
+   public function __construct($ID_uzivatel)  //metoda kterÃ¡ definuje atributy
    {
-      //uložení hodnoty pøedané metodou do atributu
+      //uloÅ¾enÃ­ hodnoty pÅ™edanÃ© metodou do atributu
       $this->ID_uzivatel = $ID_uzivatel;
       //------------------------
    }
 //konec metody __konstruct
 	public function uprav($sl)
 	{
-	//známkování zkoušky
+	//znÃ¡mkovÃ¡nÃ­ zkouÅ¡ky
 		return 1;
 	}
 	
@@ -45,7 +45,7 @@ class zkousky
 			
 			$zobraz['typ'] = $post['typ'];
 			
-			if ($post['typ'] == '') //pokud je typ prázdný zobrazí chybu
+			if ($post['typ'] == '') //pokud je typ prÃ¡zdnÃ½ zobrazÃ­ chybu
 			{
 				$zobraz['nazevchyba'] = true;
 				$formular = true;
@@ -53,7 +53,7 @@ class zkousky
 			else
 			{
 				/**
-				 * testování zda typ uèebny již nenexistuje...
+				 * testovÃ¡nÃ­ zda typ uÄebny jiÅ¾ nenexistuje...
 				 */
 				
 				$sql = "SELECT typ FROM ucebna_typ WHERE typ = '$zobraz[typ]'";
@@ -81,18 +81,18 @@ class zkousky
 		{
 			try
 			{
-				$db->begintransaction(); //zaèátek transakce
+				$db->begintransaction(); //zaÄÃ¡tek transakce
 				
 				$sql = $sl->ArrayToSql($input, 'ucebna_typ');
 
 				$db->query($sql);
 
-				$db->commit(); //commitnutí tranaskce
+				$db->commit(); //commitnutÃ­ tranaskce
 			}
 			catch (PDOException $e)
 			{
 				/*
-				 * když byla zachycena vyjímka v SQL zobrazí se chyba a konec
+				 * kdyÅ¾ byla zachycena vyjÃ­mka v SQL zobrazÃ­ se chyba a konec
 				 */
 				$pdo->rollBack();
 				die($e);
@@ -108,15 +108,15 @@ class zkousky
 	
 	public function zobraz($sl)
 	{
-		$session	= $sl->getSession(); // zde je vytáhne obsah promìnné $_SESSION
-		$post		= $sl->getPost(); // zde je vytáhne obsah promìnné $_POST
-		$db			= $sl->getDb(); // // zde je vytáhne databázový objekt PDO
+		$session	= $sl->getSession(); // zde je vytÃ¡hne obsah promÄ›nnÃ© $_SESSION
+		$post		= $sl->getPost(); // zde je vytÃ¡hne obsah promÄ›nnÃ© $_POST
+		$db			= $sl->getDb(); // // zde je vytÃ¡hne databÃ¡zovÃ½ objekt PDO
 		
 		if (!empty($post))
 		{
 			try
 			{
-				$db->begintransaction(); //zaèátek transakce
+				$db->begintransaction(); //zaÄÃ¡tek transakce
 				
 				$db->query("DELETE FROM hodina_student WHERE ID_uzivatel_student = '$session[ID_uzivatel]'");
 				
@@ -133,14 +133,14 @@ class zkousky
 					}
 				}
 
-				$db->commit(); //commitnutí tranaskce
+				$db->commit(); //commitnutÃ­ tranaskce
 				
 				header('location: ./?modul=zk&metoda=zobraz');
 			}
 			catch (PDOException $e)
 			{
 				/*
-				 * když byla zachycena vyjímka v SQL zobrazí se chyba a konec
+				 * kdyÅ¾ byla zachycena vyjÃ­mka v SQL zobrazÃ­ se chyba a konec
 				 */
 				$pdo->rollBack();
 				die($e);
@@ -165,7 +165,7 @@ class zkousky
 		
 	//	$sql = "SELECT ID_hodina FROM ID_hodina_student WHERE ID_uzivatel_student = '$session[ID_uzivatel]'";
 		
-		$zobraz['rozvrh'] = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC); // do promìnné result vytáhne všechny øádky DB ve formátu: 
+		$zobraz['rozvrh'] = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC); // do promÄ›nnÃ© result vytÃ¡hne vÅ¡echny Å™Ã¡dky DB ve formÃ¡tu: 
 		
 		
 		
@@ -175,7 +175,7 @@ class zkousky
 	
 	public function vymaz($sl)
 	{
-		$db			= $sl->getDb(); // // zde je vytáhne databázový objekt PDO
+		$db			= $sl->getDb(); // // zde je vytÃ¡hne databÃ¡zovÃ½ objekt PDO
 		$get		= $sl->getGet();
 		
 		if (isset($get['zkouska']))
@@ -184,18 +184,18 @@ class zkousky
 		
 			try
 			{
-				$db->begintransaction(); //zaèátek transakce
+				$db->begintransaction(); //zaÄÃ¡tek transakce
 
 				$sql = "DELETE FROM zkouska WHERE ID_zkouska = '$id'";
 
 				$db->query($sql);
 
-				$db->commit(); //commitnutí tranaskce
+				$db->commit(); //commitnutÃ­ tranaskce
 			}
 			catch (PDOException $e)
 			{
 				/**
-				 * když byla zachycena vyjímka v SQL zobrazí se chyba a konec
+				 * kdyÅ¾ byla zachycena vyjÃ­mka v SQL zobrazÃ­ se chyba a konec
 				 */
 				$pdo->rollBack();
 				die($e);

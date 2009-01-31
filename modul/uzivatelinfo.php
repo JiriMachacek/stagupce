@@ -1,23 +1,23 @@
 <?php
 
 /**
- * Zobrazuje informace o pøihlášeném uivateli
+ * Zobrazuje informace o pÅ™ihlÃ¡Å¡enÃ©m uÅ¾ivateli
  * @version 1.1
  * @final
  */
 class uzivatelinfo
 {
-   //definice atriutù
+   //definice atriutÅ¯
    //private $ID_uzivatel;
    //------------------------
 
-//zaèátek metody __construct
-   public function __construct()  //metoda která definuje atributy
+//zaÄÃ¡tek metody __construct
+   public function __construct()  //metoda kterÃ¡ definuje atributy
    {
    }
 //konec metody __konstruct
 	/**
-	 * nepouívá se, "aplikaèní jádro" vyaduje
+	 * nepouÅ¾Ã­vÃ¡ se, "aplikaÄnÃ­ jÃ¡dro" vyÅ¾aduje
 	 *
 	 * @param object $sl main
 	 * @return bool true
@@ -27,7 +27,7 @@ class uzivatelinfo
 		return 1;
 	}
 	/**
-	* nepouívá se, "aplikaèní jádro" vyaduje
+	* nepouÅ¾Ã­vÃ¡ se, "aplikaÄnÃ­ jÃ¡dro" vyÅ¾aduje
 	*
 	* @param object $sl main
 	* @return bool true
@@ -38,7 +38,7 @@ class uzivatelinfo
 	}
 	
 	/**
-	 * Zobrazuje informacve o pøihlášeném uivateli
+	 * Zobrazuje informacve o pÅ™ihlÃ¡Å¡enÃ©m uÅ¾ivateli
 	 *
 	 * @param object $sl main
 	 * @return void
@@ -46,9 +46,9 @@ class uzivatelinfo
 	 */
 	public function zobraz($sl)
 	{
-		$session	= $sl->getSession(); // zde je vytáhne obsah promìnné $_SESSION
-		$post		= $sl->getPost(); // zde je vytáhne obsah promìnné $_POST
-		$db			= $sl->getDb(); // // zde je vytáhne databázovı objekt PDO
+		$session	= $sl->getSession(); // zde je vytÃ¡hne obsah promÄ›nnÃ© $_SESSION
+		$post		= $sl->getPost(); // zde je vytÃ¡hne obsah promÄ›nnÃ© $_POST
+		$db			= $sl->getDb(); // // zde je vytÃ¡hne databÃ¡zovÃ½ objekt PDO
 		
 		$id = $session['ID_uzivatel'];
 		
@@ -59,12 +59,12 @@ class uzivatelinfo
 				WHERE	ID_uzivatel = '$id'
 				";
 
-		$zobraz = $db->query($sql)->fetch(PDO::FETCH_ASSOC); // do promìnné result vytáhne všechny øádky DB ve formátu: 
+		$zobraz = $db->query($sql)->fetch(PDO::FETCH_ASSOC); // do promÄ›nnÃ© result vytÃ¡hne vÅ¡echny Å™Ã¡dky DB ve formÃ¡tu: 
 		
 		$sl->zobraz($zobraz, 'uzivatelinfo.tpl'); // preda sablone hodnoty pole zobraz a zobrazi je v sablone ucebny.tpl
 	}
 	/**
-	 * nepouívá se, "aplikaèní jádro" vyaduje
+	 * nepouÅ¾Ã­vÃ¡ se, "aplikaÄnÃ­ jÃ¡dro" vyÅ¾aduje
 	 *
 	 * @param object $sl main
 	 * @return bool true
