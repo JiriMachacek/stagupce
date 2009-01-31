@@ -1,5 +1,26 @@
 <?php
+/**
+ * Project:     Stag Upce
+ * File:        index.php
+ *
+ * Školní projekt z předmětu OOP
+ *
+ * @link http://stag.hypnoticart.net/
+ * @link http://code.google.com/p/stagupce/
+ * @link http://code.google.com/p/stagupce/wiki/Uzivatelska_dokumentace
+ * @copyright 2008-2009 Kolektiv autorů
+ * @author Jiří Macháček
+ * @author Lukáš Janda
+ * @author Martin Kocourek
+ * @author Vojtěch Vlkovský
+ * @package stagupce
+ * @version 0.9
+ */
+
 session_start();
+/**
+ * načte soubor s třídou main a configurační soubor
+ */
 include_once ('main.php');
 include_once ('config.php');
 
@@ -33,7 +54,7 @@ else if (isset($get['odhlaseni']))
 else
 {
 	/*
-	 * @todo použije se zde střída Cseo + CAuth
+	 * zjišťuje se zda uživatel má právo používat daný modul
 	 */
 	if (isset($get['modul']))
 	{
@@ -64,7 +85,9 @@ else
 $main->setNazev($nazev);
 
 
-
+/**
+ * načtení souboru s modulem
+ */
 include_once('./modul/'.$modul.'.php');
 
 $stranka = new $modul();

@@ -1,10 +1,22 @@
 <?php
+
+/**
+ * třída materiály spravuje studijní materiály
+ * @version 0.8b
+ */
 class materialy
 {
 	public function __construct()
 	{
 	}
 	
+	/**
+	 * zobrazuje všechny dostupné studijní materiály
+	 *
+	 * @param object $sl main
+	 * @return void
+	 *
+	 */
 	public function zobraz($sl)
 	{
 		$session	= $sl->getSession();
@@ -27,11 +39,25 @@ class materialy
 		
 	}
 	
+	/**
+	 * upravuvuje studijní materiál
+	 *
+	 * @param object $sl main
+	 * @return void
+	 * @todo all
+	 */
 	public function uprav($sl)
 	{
 		return 1;
 	}
 	
+	/**
+	 * vkládá nový studijní materiál
+	 *
+	 * @param object $sl main
+	 * @return void
+	 * @todo fix
+	 */
 	public function vloz($sl)
 	{
 		$session	= $sl->getSession();
@@ -120,8 +146,6 @@ class materialy
 				$sql .= "JOIN hodina h ON p.ID_predmet = h.ID_predmet
 						 WHERE ID_uzivatel_vyucujici = '$ucitel_id'";
 			}
-print_r($session);
-echo $sql;
 
 			$result = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 			$zobraz['predmety']['nic'] = '---';
@@ -168,7 +192,14 @@ echo $sql;
 		
 		//var_dump($session);
 	}
-	
+
+	/**
+	 * vymazává studijní materiál
+	 *
+	 * @param object $sl main
+	 * @return void
+	 * @todo all
+	 */
 	public function vymaz($sl)
 	{
 		return 1;

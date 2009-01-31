@@ -1,10 +1,21 @@
 <?php
+
+/**
+ * Spravuje typy učeben
+ * @version 1.0
+ */
 class ucebnytypy
 {
 	public function __construct()
 	{
 	}
-	
+	/**
+	 * Zobrazuje všechny typy učeben školy
+	 *
+	 * @param object $sl main
+	 * @return void
+	 *
+	 */	
 	public function zobraz($sl)
 	{
 		$post		= $sl->getPost();
@@ -18,12 +29,24 @@ class ucebnytypy
 		$sl->zobraz($zobraz, 'ucebnytypy.tpl');
 
 	}
-	
+	/**
+	 * Upravuje název typu učebny
+	 *
+	 * @param object $sl main
+	 * @return void
+	 * @todo all
+	 */	
 	public function uprav($sl)
 	{
 		return 1;
 	}
-	
+	/**
+	 * vloží nový typ učebny
+	 *
+	 * @param object $sl main
+	 * @return void
+	 *
+	 */	
 	public function vloz($sl)
 	{
 		$session	= $sl->getSession();
@@ -104,7 +127,13 @@ class ucebnytypy
 		
 		//var_dump($session);
 	}
-	
+	/**
+	 * vymaže typ školní učebny
+	 *
+	 * @param object $sl main
+	 * @return void
+	 *
+	 */	
 	public function vymaz($sl)
 	{
 		$db			= $sl->getDb(); // // zde je vytáhne databázový objekt PDO

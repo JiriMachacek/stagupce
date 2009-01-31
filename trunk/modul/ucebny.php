@@ -1,10 +1,23 @@
 <?php
+
+/**
+ * Spravuje školní učebny
+ *
+ * @version 1.0
+ */
 class ucebny
 {
 	public function __construct()
 	{
 	}
 	
+	/**
+	 * Zobrazuje všechny učebny školy
+	 *
+	 * @param object $sl main
+	 * @return void
+	 *
+	 */
 	public function zobraz($sl)
 	{
 		$post		= $sl->getPost();
@@ -20,11 +33,25 @@ class ucebny
 
 	}
 	
+	/**
+	 * Upravuje název, kapacitu učebny
+	 *
+	 * @param object $sl main
+	 * @return void
+	 * @todo all
+	 */
 	public function uprav($sl)
 	{
 		return 1;
 	}
 	
+	/**
+	 * vloží novou učebnu
+	 *
+	 * @param object $sl main
+	 * @return void
+	 *
+	 */
 	public function vloz($sl)
 	{
 		$session	= $sl->getSession();
@@ -150,6 +177,13 @@ class ucebny
 	}
 	
 		
+	/**
+	 * vymaže školní učebnu
+	 *
+	 * @param object $sl main
+	 * @return void
+	 *
+	 */
 	public function vymaz($sl)
 	{
 		$db			= $sl->getDb(); // // zde je vytáhne databázový objekt PDO

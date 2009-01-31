@@ -1,10 +1,23 @@
 <?php
+
+/**
+ * Spravuje vyučované předměty
+ *
+ * @version 1.0
+ */
 class predmet
 {
 	public function __construct()
 	{
 	}
-	
+
+	/**
+	 * zobrazuje všechny dostupné předměty
+	 *
+	 * @param object $sl main
+	 * @return void
+	 *
+	 */	
 	public function zobraz($sl)
 	{
 		$post		= $sl->getPost();
@@ -23,12 +36,27 @@ class predmet
 		$sl->zobraz($zobraz, 'predmet.tpl');
 
 	}
-	
+
+	/**
+	 * upravuje studijní předmět
+	 *
+	 * @param object $sl main
+	 * @return bool true
+	 * @todo all
+	 *
+	 */	
 	public function uprav($sl)
 	{
 		return 1;
 	}
 	
+	/**
+	 * Vkládá nový studijní předmět
+	 *
+	 * @param object $sl main
+	 * @return void
+	 *
+	 */
 	public function vloz($sl)
 	{
 		$session	= $sl->getSession();
@@ -163,7 +191,13 @@ class predmet
 		//var_dump($session);
 	}
 	
-		
+	/**
+	 * vymaže předmět
+	 *
+	 * @param object $sl main
+	 * @return void
+	 *
+	 */
 	public function vymaz($sl)
 	{
 		$db			= $sl->getDb(); // // zde je vytáhne databázový objekt PDO

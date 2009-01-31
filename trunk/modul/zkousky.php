@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * modul spravující zkoušky
+ * 
+ * @version 0.3
+ */
 class zkousky
 {
    //definice atriutù

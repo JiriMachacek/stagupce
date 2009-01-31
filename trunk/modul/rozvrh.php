@@ -1,14 +1,23 @@
 <?php
+
+/**
+ * Zobrazuje rozvrh uživatele
+ *
+ */
 class rozvrh
 {
-	/**
-	 * název třídy musí být stejný jako název 
-	 *
-	 */
 	public function __construct()
 	{
 	}
 	
+	
+	/**
+	 * Zobrazí rovrh studenta
+	 *
+	 * @param object $sl main
+	 * @return void
+	 *
+	 */
 	public function zobraz($sl)
 	{
 		$session	= $sl->getSession(); // zde je vytáhne obsah proměnné $_SESSION
@@ -44,18 +53,26 @@ class rozvrh
 	{
 		return 1;
 	}
-	
+	/**
+	 * nepoužívá se, "aplikační jádro" vyžaduje
+	 *
+	 * @param object $sl main
+	 * @return bool true
+	 */	
 	public function vloz($sl)
 	{
 		return 1;
 	}
-	
+	/**
+	* nepoužívá se, "aplikační jádro" vyžaduje
+	*
+	* @param object $sl main
+	* @return bool true
+	*/
 	public function vymaz($sl)
 	{
 		return 1;
 	}
-
 }
 
 ?>
-	

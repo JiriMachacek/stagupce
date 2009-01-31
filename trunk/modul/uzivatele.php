@@ -1,10 +1,21 @@
 <?php
+
+/**
+ * Třída spravuje uživatele
+ * @version 1.0
+ */
 class uzivatele
 {
 	public function __construct()
 	{
 	}
-	
+	/**
+	* zobrazuje všechny uživatele systému
+	*
+	* @param object $sl main
+	* @return void
+	*
+	*/
 	public function zobraz($sl)
 	{
 		$post		= $sl->getPost();
@@ -18,12 +29,24 @@ class uzivatele
 		$sl->zobraz($zobraz, 'uzivatele.tpl');
 
 	}
-	
+	/**
+	 * Upravuje název typu učebny
+	 *
+	 * @param object $sl main
+	 * @return void
+	 * @todo all
+	 */		
 	public function uprav($sl)
 	{
 		return 1;
 	}
-	
+	/**
+	 * zobrazí formulář na vložení nového uživatele
+	 *
+	 * @param object $sl main
+	 * @return void
+	 *
+	 */	
 	public function vloz($sl)
 	{
 		$session	= $sl->getSession();
@@ -160,7 +183,13 @@ class uzivatele
 		
 		//var_dump($session);
 	}
-	
+	/**
+	* vymaže uživatele
+	*
+	* @param object $sl main
+	* @return void
+	*
+	*/
 	public function vymaz($sl)
 	{
 		$db			= $sl->getDb(); // // zde je vytáhne databázový objekt PDO
