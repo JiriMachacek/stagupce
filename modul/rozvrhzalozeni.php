@@ -1,14 +1,22 @@
 <?php
+
+/**
+ * Založení rozvrhových akcí, na které se pak budou studenti moct přihlásit
+ *
+ * @version 0.8b
+ */
 class rozvrhzalozeni
 {
-	/**
-	 * název třídy musí být stejný jako název 
-	 *
-	 */
 	public function __construct()
 	{
 	}
 	
+	/**
+	* Zobrazí definované rozvrhové akce
+	*
+	* @param object $sl main
+	* @return void
+	*/	
 	public function zobraz($sl)
 	{
 		$session	= $sl->getSession(); // zde je vytáhne obsah proměnné $_SESSION
@@ -39,12 +47,26 @@ class rozvrhzalozeni
 		
 	}
 	
-	
+	/**
+	 * upraví rozvrhovou akci, zatím neni implementováno
+	 *
+	 * @param object $sl main
+	 * @return bool true
+	 * @todo all
+	 */		
 	public function uprav($sl)
 	{
 		return 1;
 	}
 	
+	
+	/**
+	 * Vytvoří novou rozvrhovou akci, musí být definována učebna, předmět a nějaký učitel
+	 *
+	 * @param object $sl main
+	 * @return void
+	 *
+	 */
 	public function vloz($sl)
 	{
 		$session	= $sl->getSession(); // zde je vytáhne obsah proměnné $_SESSION
@@ -268,6 +290,14 @@ class rozvrhzalozeni
 		}
 	}
 	
+	
+	/**
+	 * vymaže rozvrhovou akci
+	 *
+	 * @param object $sl main
+	 * @return void
+	 *
+	 */
 	public function vymaz($sl)
 	{
 		$db			= $sl->getDb(); // // zde je vytáhne databázový objekt PDO

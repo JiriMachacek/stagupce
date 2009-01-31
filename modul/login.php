@@ -1,10 +1,22 @@
 <?php
+
+/**
+ * tøída login slouží k pøihlašování uživatelù
+ * @version 1.0
+ */
 class login
 {
 	public function __construct()
 	{
 	}
 	
+	/**
+	 * zobrazní pøilašovací formuláø
+	 *
+	 * @param object $sl main
+	 * @return void
+	 *
+	 */
 	public function zobraz($sl)
 	{
 		$session	= $sl->getSession();
@@ -50,17 +62,35 @@ class login
 		
 		//var_dump($session);
 	}
-	
+
+	/**
+	 * nepoužívá se, "aplikaèní jádro" vyžaduje
+	 *
+	 * @param object $sl main
+	 * @return bool true
+	 */
 	public function uprav($sl)
 	{
 		return 1;
 	}
-	
+
+	/**
+	 * nepoužívá se, "aplikaèní jádro" vyžaduje
+	 *
+	 * @param object $sl main
+	 * @return bool true
+	 */
 	public function vloz($sl)
 	{
 		return 1;
 	}
-	
+
+	/**
+	 * nepoužívá se, "aplikaèní jádro" vyžaduje
+	 *
+	 * @param object $sl main
+	 * @return bool true
+	 */
 	public function vymaz($sl)
 	{
 		return 1;

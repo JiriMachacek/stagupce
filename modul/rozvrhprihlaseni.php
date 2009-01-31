@@ -1,14 +1,22 @@
 <?php
+
+/**
+ * řeší přihlašování studentů na jednotlivé předměty, které se předtím definují v modulu rozvrh zalozeni
+ * @version 0.9
+ */
 class rozvrhprihlaseni
 {
-	/**
-	 * název třídy musí být stejný jako název 
-	 *
-	 */
 	public function __construct()
 	{
 	}
 	
+	/**
+	 * zobrazí předměty na které se lze přihlásit
+	 *
+	 * @param object $sl main
+	 * @return void
+	 *
+	 */
 	public function zobraz($sl)
 	{
 		$session	= $sl->getSession(); // zde je vytáhne obsah proměnné $_SESSION
@@ -144,17 +152,32 @@ class rozvrhprihlaseni
 		$sl->zobraz($zobraz, 'rozvrhprihlaseni.tpl'); // preda sablone hodnoty pole zobraz a zobrazi je v sablone ucebny.tpl
 	}
 	
-	
+	/**
+	 * nepoužívá se, "aplikační jádro" vyžaduje
+	 *
+	 * @param object $sl main
+	 * @return bool true
+	 */	
 	public function uprav($sl)
 	{
 		return 1;
 	}
-	
+	/**
+	* nepoužívá se, "aplikační jádro" vyžaduje
+	*
+	* @param object $sl main
+	* @return bool true
+	*/
 	public function vloz($sl)
 	{
 		return 1;
 	}
-	
+	/**
+	* nepoužívá se, "aplikační jádro" vyžaduje
+	*
+	* @param object $sl main
+	* @return bool true
+	*/
 	public function vymaz($sl)
 	{
 		return 1;
@@ -163,4 +186,3 @@ class rozvrhprihlaseni
 }
 
 ?>
-	

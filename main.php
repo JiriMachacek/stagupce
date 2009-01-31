@@ -1,18 +1,55 @@
 <?php
-
+/**
+ * připojuje soubor se smarty třídou
+ */
 require ('smarty/Smarty.class.php');
 
+/**
+ * hlavní třída, která zajišťuje komunikaci všeho se vším
+ */
 class main
 {
+
+
+	/**
+	 * @var object $smarty smarty objekt
+	 */
 	private $smarty;
+	/**
+	 * @var object $pdo PDO objekt obsluhuje databázi
+	 */
 	private $pdo;
+	/**
+	 * @var array $session pole předávané přez $_SESSION
+	 */
 	private $session;
+	/**
+	 * @var array $post pole předáváné přez $_POST ve formulářích
+	 */
 	private $post;
+	/**
+	 * @var string $nazev název zobrazený v title stránky
+	 */
 	private $nazev;
+	/**
+	 * @var string $modul název použitého modulu
+	 */
 	private $modul;
+	/**
+	 * @var array $get pole předáváné přez $_GET - parametry stránky
+	 */
 	private $get;
 	
-    public function __construct($session, $post, $get)
+    
+	/**
+	 * @param array $session globální proměnná $_SESSION
+	 * @param array $post globální proměnná $_POST
+	 * @param array $get globální proměnná $_GET
+	 * 
+	 * @return void
+	 */
+	
+	public function __construct($session, $post, $get)
     {
         $this->startSmarty();
         $this->startDb();
@@ -23,28 +60,39 @@ class main
         $this->setGet($get);
 
     }
-	
+	/**
+	 * inicializuje smarty objekt do proměnné $this->smarty
+	 * @param void
+	 * @return void 
+	 */			
 	private function startSmarty()
 	{
-		/**
-		 *@access public
-		 *@category smarty
-		 *
-		 *startuje Smarty objekt
-		 */		 		 		
+ 		 		
 		$this->smarty = new Smarty;
 		$this->smarty->compile_check = true;
 		$this->smarty->debugging = smartyDebug;
 	}
 	
+	/**
+	 * připojí se k db
+	 * @param void
+	 * @return void
+	 */
 	private function startDb()
 	{
-		//připojení k db
-	
 		$this->pdo = new PDO('mysql:host='.SQL_host.';dbname='.SQL_dbname, SQL_username, SQL_password);
 		$this->pdo->query("SET CHARACTER SET utf8");
 	}
 		
+	
+	/**
+	 * převede pole na sql dotaz
+	 *
+	 * @param array $value klíč = název sloupce, hodnota = hodnota
+	 * @param string $table název tabulky do které se mají vložit hodnoty pole
+	 * @return string sql dotaz
+	 *
+	 */
 	public function ArrayToSql($value, $table)
 	{
 		$keys = implode(",",array_keys($value));
@@ -55,8 +103,17 @@ class main
 	}
 	
 	
+	/**
+	 * Zobrazí stránku
+	 *
+	 * @param array $promenne klíč = název smarty proměnné, hodnota = hodnota
+	 * @param string $sablona název šablony, která se má použít pro zobrazení stránky
+	 * @return void zobrazní stránku
+	 *
+	 */
 	public function zobraz ($promenne, $sablona)
 	{
+
 		//preda promenne smarty
 		if (isset($promenne))
 			foreach ($promenne as $key => $promena)
@@ -70,46 +127,105 @@ class main
 		$this->smarty->display($sablona);
 	}
 	
+	
+	/**
+	 * vrátí pole session
+	 *
+	 * @return array pole session
+	 *
+	 */
 	public function getSession ()
 	{
 		return $this->session;
 	}
 	
+	
+	/**
+	 * Uloží hodnoty do proměnné session
+	 *
+	 * @param array $value hodnota $_SESSION
+	 * @return void 
+	 *
+	 */
 	public function setSession ($value)
 	{
 		$this->session = $value;
 	}
 	
+	
+	/**
+	 * vrátí pole post
+	 *
+	 * @return array pole Post
+	 *
+	 */
 	public function getPost()
 	{
 		return $this->post;
 	}
 
+	
+	/**
+	 * Vrátí databázový objekt
+	 *
+	 * @return object PDO objekt
+	 *
+	 */
 	public function getDb()
 	{
 		return $this->pdo;
 	}
 	
+	
+	/**
+	 * Nataví název stránky
+	 *
+	 * @param string $value název stránky
+	 * @return void 
+	 *
+	 */
 	public function setNazev($value)
 	{
-		/*
-		 * @value nastaví název stránky
-		 */
 		$this->nazev = $value;
 	}
 	
-  public function getGet ()
+	  
+	/**
+	 * Vráti prarametry Get
+	 *
+	 * @return array Vrátí pole s parametry Get
+	 *
+	 */
+	public function getGet ()
 	{
 		return $this->get;
 	}
+
+	
+	/**
+	 * Nataví proměnou get
+	 *
+	 * @param array $value hodnota proměnné get
+	 * @return void
+	 *
+	 */
 	private function setGet ($value)
 	{
 		$this->get = $value;
 	}
 	
   
-//začátek metody modulPovolit která ověřuje orpávnění uživatele pro volání modulu
-   public function modulPovolit($modul,$metoda)
+
+   
+	/**
+	 * Ověruje oprávnění uživatele pro volání modulu
+	 *
+	 * @param string $modul nazev modulu
+	 * @param string $metoda vloz, uprav, smaz, zobraz
+	 * @return bool true - povolí, false nepovolí
+	 *
+	 */
+	public function modulPovolit($modul,$metoda)
    {
       if(IsSet($this->session['ID_uzivatel']))
       {
